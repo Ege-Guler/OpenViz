@@ -18,6 +18,8 @@ public:
     void applyView();
     void setPosition(GLfloat x, GLfloat y, GLfloat z);
     void setRotation(GLfloat ax, GLfloat ay);
+    void setDistance(GLfloat d);
+    GLfloat getDistance();
     void moveForward(GLfloat speed);
     void moveRight(GLfloat speed);
     void moveUp(GLfloat speed);

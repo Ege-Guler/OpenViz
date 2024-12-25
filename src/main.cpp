@@ -12,6 +12,7 @@ int depth = 2;
 GLfloat farPlane = 100.0f;
 GLfloat nearPlane = 1.0f;
 GLfloat fov = 45.0f;
+GLfloat tempDistance = cameras[currentCameraIndex].getDistance();
 
 // Actual definitions of global variables
 Viewport viewport = {1280, 720, 1920 - 1280, 1080 - 720};
@@ -75,8 +76,23 @@ void RenderMainControls() {
     ImGui::Checkbox("Show Object Axes", &showObjectAxes);
     ImGui::Checkbox("Free Roam", &freeRoam);
 
+
+    if (ImGui::SliderFloat("Camera Distance", &tempDistance, 1.0f, 100.0f)) {
+        std::cout << "Preview Distance: " << tempDistance << std::endl;
+    }
+
+    // Apply the new distance only after slider release
+    if (ImGui::IsItemDeactivatedAfterEdit()) {
+        cameras[currentCameraIndex].setDistance(tempDistance);
+        tempDistance = cameras[currentCameraIndex].getDistance();
+
+    }
+
     const char* cameraNames[] = {"Default", "Side View", "Top-Down", "Free Roam"};
-    ImGui::Combo("Camera", &currentCameraIndex, cameraNames, IM_ARRAYSIZE(cameraNames));
+   if( ImGui::Combo("Camera", &currentCameraIndex, cameraNames, IM_ARRAYSIZE(cameraNames))){
+        tempDistance = cameras[currentCameraIndex].getDistance();
+
+   }
     ImGui::Checkbox("Show Frustrum Cam Default", &showFrustrum[0]);
     ImGui::Checkbox("Show Frustrum Cam Side View", &showFrustrum[1]);
     ImGui::Checkbox("Show Frustrum Cam Top View", &showFrustrum[2]);

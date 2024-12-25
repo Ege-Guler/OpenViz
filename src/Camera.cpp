@@ -20,6 +20,14 @@ void Camera::applyView() {
     gluLookAt(camX, camY, camZ, posX, posY, posZ, 0.0f, 1.0f, 0.0f);
 }
 
+void Camera::setDistance(GLfloat d) {
+    this->distance = d;
+}
+
+GLfloat Camera::getDistance() {
+    return this->distance;
+}
+
 // Set camera position
 void Camera::setPosition(GLfloat x, GLfloat y, GLfloat z) {
     this->camX = x;
