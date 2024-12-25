@@ -10,16 +10,6 @@
 #include "helper.h"
 #include "Axes.h"
 
-GLfloat cameraDistance = 5.0f;
-GLfloat cameraAngleX = 0.0f;
-GLfloat cameraAngleY = 0.0f;
-
-struct Cam
-{
-    GLfloat cameraDistance;
-    GLfloat cameraAngleX;
-    GLfloat cameraAngleY;
-};
 
 // Last mouse pos
 struct Mouse
@@ -37,19 +27,42 @@ struct Viewport
 };
 
 struct Rotation {
-    float angleX = 0.0f;
-    float angleY = 0.0f;
-    float angleZ = 0.0f;
-    float speedX = 0.0f;
-    float speedY = 0.0f;
-    float speedZ = 0.0f;
-} rotation;
+    float angleX;
+    float angleY;
+    float angleZ;
+    float speedX;
+    float speedY;
+    float speedZ;
+};
+struct Camera {
+    GLfloat distance;
+    GLfloat angleX;
+    GLfloat angleY;
+    GLfloat posX;
+    GLfloat posY;
+    GLfloat posZ;
+};
+
+struct FreeCamera {
+    GLfloat posX, posY, posZ;     // Position
+    GLfloat dirX, dirY, dirZ;     // Direction
+    GLfloat upX, upY, upZ;        // Up vector
+    GLfloat speed;                // Movement speed
+    GLfloat sensitivity;          // Mouse sensitivity
+};
 
 
+extern bool keyStates[256];  // Track key states
 
-Viewport viewport = {1280, 720, 1920 -1280, 1080 - 720};
-Mouse mouse;
-Cam cam = {5.0f, 0.0f, 0.0f};
+extern Viewport viewport;
+extern Mouse mouse;
+extern Rotation rotation;
+extern Camera cameras[4];
+extern int currentCameraIndex;  // Selected camera
+extern bool isDragging;
+extern FreeCamera freeCamera;
+extern bool freeRoam;
+
 
 void renderGUI();
 void display();
@@ -58,6 +71,5 @@ void updateViewPort();
 void mouseMotion(int x, int y);
 void mouseButton(int button, int state, int x, int y);
 
-bool isDragging = false;
 
 #endif // MAIN_H_

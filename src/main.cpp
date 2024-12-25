@@ -7,39 +7,61 @@ Sierpinski3D sierpinski3D;
 float rotationSpeed = 1.0f;
 int depth = 2;
 
+// Actual definitions of global variables
+Viewport viewport = {1280, 720, 1920 - 1280, 1080 - 720};
+Mouse mouse;
+Rotation rotation = {0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f};
+Camera cameras[4] = {
+    {5.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f},
+    {10.0f, 45.0f, 45.0f, 5.0f, 5.0f, 5.0f},
+    {8.0f, 30.0f, -30.0f, -5.0f, 3.0f, 8.0f},
+    {0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f} // free roam
+};
+
+FreeCamera freeCamera = {0.0f, 1.5f, 5.0f,  // Camera Position
+              0.0f, 0.0f, -1.0f, // Camera Direction (looking forward)
+              0.0f, 1.0f, 0.0f,  // Up vector
+              0.01f, 0.00001f};       // Movement speed and sensitivity
+
+
+int currentCameraIndex = 0;
+bool isDragging = false;
+bool freeRoam = false;
+
 
 void renderGUI() {
     ImGui_ImplOpenGL2_NewFrame();
     ImGui_ImplGLUT_NewFrame();
     ImGui::NewFrame();
 
-    // Rotation Control Panel
     ImGui::Begin("Controls");
 
-    // Adjust Rotation Speed
     ImGui::Text("Rotation Speeds:");
     ImGui::SliderFloat("Speed X", &rotation.speedX, -5.0f, 5.0f);
     ImGui::SliderFloat("Speed Y", &rotation.speedY, -5.0f, 5.0f);
     ImGui::SliderFloat("Speed Z", &rotation.speedZ, -5.0f, 5.0f);
     ImGui::SliderInt("Depth", &depth, 2, 8);
 
-
-    // Reset Button for Angles
     if (ImGui::Button("Reset Rotation")) {
         rotation.angleX = rotation.angleY = rotation.angleZ = 0.0f;
         rotation.speedX = rotation.speedY = rotation.speedZ = 0.0f;
     }
 
+    ImGui::Checkbox("Show Origin Axes", &showOriginAxes);
+    ImGui::Checkbox("Show Object Axes", &showObjectAxes);
+    ImGui::Checkbox("Free Roam", &freeRoam);
 
-    ImGui::Checkbox("Show Origin Axes", &showOriginAxes);  // Toggle axes
-    ImGui::Checkbox("Show Object Axes", &showObjectAxes);  // Toggle axes
-    
+
+    // Dropdown for camera selection
+    const char* cameraNames[] = {"Default", "Side View", "Top-Down", "Free Roam"};
+    ImGui::Combo("Camera", &currentCameraIndex, cameraNames, IM_ARRAYSIZE(cameraNames));
+
     ImGui::End();
-
 
     ImGui::Render();
     ImGui_ImplOpenGL2_RenderDrawData(ImGui::GetDrawData());
 }
+
 
 
 
@@ -72,26 +94,31 @@ void updateViewPort(){
 
 }
 
+void keyboardDown(unsigned char key, int x, int y) {
+    keyStates[key] = true;
+}
+
+void keyboardUp(unsigned char key, int x, int y) {
+    keyStates[key] = false;
+}
+
+
+
+
 void display() {
     // Clear buffers and reset transformations
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glLoadIdentity();
 
-
     updateViewPort();
 
-    // Camera transformations
-    GLfloat radX = cam.cameraAngleX * M_PI / 180.0f;
-    GLfloat radY = cam.cameraAngleY * M_PI / 180.0f;
-    GLfloat camX = cam.cameraDistance * cos(radY) * sin(radX);
-    GLfloat camY = cam.cameraDistance * sin(radY);
-    GLfloat camZ = cam.cameraDistance * cos(radY) * cos(radX);
+    if(!freeRoam){
+        updateCamera();
+    }
+    else{
+        updateFreeCamera();
+    }
 
-    gluLookAt(camX, camY, camZ,  // Camera position
-              0.0f, 0.0f, 0.0f,  // Look-at point
-              0.0f, 1.0f, 0.0f); // Up vector
-
-    
     drawGrid(10.0f, 20, -2);
 // Apply object rotations
     glPushMatrix();  // Save the current transformation state
@@ -143,7 +170,7 @@ void mouseButton(int button, int state, int x, int y) {
     int invertedY = glutGet(GLUT_WINDOW_HEIGHT) - y;
 
 
-    bool isInside = insideViewport(x, invertedY, viewport.viewportX, viewport.viewportY, viewport.viewportWidth, viewport.viewportHeight);
+    bool isInside = insideViewport(x, invertedY, viewport);
     // Pass all events to ImGui first
     ImGui_ImplGLUT_MouseFunc(button, state, x, y);
 
@@ -165,7 +192,8 @@ void mouseMotion(int x, int y) {
     int invertedY = glutGet(GLUT_WINDOW_HEIGHT) - y;
 
 
-    bool isInside = insideViewport(x, invertedY, viewport.viewportX, viewport.viewportY, viewport.viewportWidth, viewport.viewportHeight);
+
+    bool isInside = insideViewport(x, invertedY, viewport);
 
     // Pass all events to ImGui first
     ImGui_ImplGLUT_MotionFunc(x, y);
@@ -175,11 +203,11 @@ void mouseMotion(int x, int y) {
         int dx = x - mouse.mouseX;
         int dy = y - mouse.mouseY;
 
-        cam.cameraAngleX += dx * 0.5f;
-        cam.cameraAngleY += dy * 0.5f;
+        cameras[currentCameraIndex].angleX += dx * 0.5f;
+        cameras[currentCameraIndex].angleY += dy * 0.5f;
 
-        if (cam.cameraAngleY > 89.0f) cam.cameraAngleY = 89.0f;
-        if (cam.cameraAngleY < -89.0f) cam.cameraAngleY = -89.0f;
+        if (cameras[currentCameraIndex].angleY > 89.0f) cameras[currentCameraIndex].angleY = 89.0f;
+        if (cameras[currentCameraIndex].angleY < -89.0f) cameras[currentCameraIndex].angleY = -89.0f;
 
         mouse.mouseX = x;
         mouse.mouseY = y;
@@ -187,6 +215,67 @@ void mouseMotion(int x, int y) {
         glutPostRedisplay();
     }
 }
+
+
+void mouseMotionRoam(int x, int y) {
+    if (!freeRoam) return;  // Exit if not in free roam mode
+
+    ImGuiIO& io = ImGui::GetIO();
+    int invertedY = glutGet(GLUT_WINDOW_HEIGHT) - y;
+
+    // Capture mouse only when inside the viewport
+    if (isMouseInViewport(x, invertedY)) {
+        io.WantCaptureMouse = false;  // Enable camera control
+    } else {
+        io.WantCaptureMouse = true;
+    }
+
+    if (!io.WantCaptureMouse) {
+        static bool warp = false;
+
+        if (warp) {
+            warp = false;
+            return;
+        }
+
+        // Calculate viewport center
+        int centerX = viewport.viewportX + viewport.viewportWidth / 2;
+        int centerY = viewport.viewportHeight / 2;
+
+
+        // Clamp mouse position within viewport bounds
+  
+        // Calculate relative mouse position
+
+
+        // Debugging output
+        std::cout << "Viewport Center: " << centerX << ", " << centerY << std::endl;
+        std::cout << "Mouse: " << x << ", " << y << std::endl;
+
+        // Calculate deltas (difference from center)
+        int dx = x - centerX;
+        int dy = centerY -y;  // **Fixed Y Inversion**
+
+        // Adjust yaw and pitch
+        freeCamera.dirX += dx * freeCamera.sensitivity;
+        freeCamera.dirY += dy * freeCamera.sensitivity;  // Inverted for natural pitch
+
+        // Clamp pitch to avoid flipping
+        if (freeCamera.dirY > 89.9f) freeCamera.dirY = 89.9f;
+        if (freeCamera.dirY < -89.9f) freeCamera.dirY = -89.9f;
+
+        // Debug output for direction
+        std::cout << "Direction: " << freeCamera.dirX << ", " << freeCamera.dirY << std::endl;
+
+        // Re-center the mouse cursor inside the viewport
+        warp = true;
+        glutWarpPointer(centerX, centerY);
+    }
+}
+
+
+
+
 
 
 int main(int argc, char* argv[]) {
@@ -208,6 +297,9 @@ int main(int argc, char* argv[]) {
     glutDisplayFunc(display);
     glutMouseFunc(mouseButton);
     glutMotionFunc(mouseMotion);
+    glutKeyboardFunc(keyboardDown);
+    glutKeyboardUpFunc(keyboardUp);
+    glutPassiveMotionFunc(mouseMotionRoam);
 
     // Main loop
     glutMainLoop();
