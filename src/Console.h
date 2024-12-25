@@ -3,7 +3,6 @@
 
 #include <vector>
 #include <string>
-#include <imgui.h>
 
 class Console {
 public:
@@ -14,11 +13,13 @@ public:
     void AddLog(const char* fmt, ...);
     void ExecuteCommand(const std::string& command);
     void Render();
+    bool verboseMode;  // New flag for verbose output
 
 private:
     std::vector<std::string> logBuffer;
-    char inputBuffer[256];  // Fixed-size buffer for user input
+    char inputBuffer[256];
     bool scrollToBottom;
+    void PrintVerboseState();  // Helper to print detailed state
 };
 
-#endif // CONSOLE_H
+#endif

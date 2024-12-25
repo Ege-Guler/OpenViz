@@ -59,6 +59,8 @@ extern bool freeRoam;
 extern GLfloat farPlane;
 extern GLfloat nearPlane;
 extern Console console;
+extern GLfloat fov;
+extern bool showFrustrum[4];
 
 void renderGUI();
 void display();

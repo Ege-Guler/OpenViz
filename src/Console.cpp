@@ -5,6 +5,7 @@
 #include "imgui.h"
 #include "imgui_impl_glut.h"
 #include "imgui_impl_opengl2.h"
+#include "main.h"
 
 // Set buffer size for user input
 #define INPUT_BUFFER_SIZE 256
@@ -45,12 +46,38 @@ void Console::ExecuteCommand(const std::string& command) {
     } 
     else if (command == "help") {
         AddLog("Available commands:");
-        AddLog("- clear : Clears the console.");
-        AddLog("- help  : Lists available commands.");
-    } 
+        AddLog("- clear  : Clears the console.");
+        AddLog("- help   : Lists available commands.");
+        AddLog("- exit   : Exits the application.");
+        AddLog("- verbose: Toggles verbose mode.");
+    }
+    else if (command == "verbose") {
+        verboseMode = !verboseMode;
+        AddLog("Verbose mode %s.", verboseMode ? "ON" : "OFF");
+        if (verboseMode) {
+            PrintVerboseState();
+        }
+    }
+    else if (command == "exit") {
+        AddLog("Exiting application...");
+        exit(0);
+    }
     else {
         AddLog("Unknown command: '%s'. Type 'help' for available commands.", command.c_str());
     }
+}
+
+void Console::PrintVerboseState() {
+    AddLog("------ APP STATE ------");
+    AddLog("Viewport: %dx%d at %d, %d", viewport.viewportWidth, viewport.viewportHeight, viewport.viewportX, viewport.viewportY);
+    AddLog("Rotation: X: %.2f Y: %.2f Z: %.2f", rotation.angleX, rotation.angleY, rotation.angleZ);
+    AddLog("Rotation Speeds: X: %.2f Y: %.2f Z: %.2f", rotation.speedX, rotation.speedY, rotation.speedZ);
+    AddLog("Current Camera: %d", currentCameraIndex);
+    AddLog("Camera Position: X: %.2f Y: %.2f Z: %.2f", 
+           cameras[currentCameraIndex].posX, cameras[currentCameraIndex].posY, cameras[currentCameraIndex].posZ);
+    AddLog("FreeCam Position: X: %.2f Y: %.2f Z: %.2f", 
+           freeCamera.posX, freeCamera.posY, freeCamera.posZ);
+    AddLog("----------------------");
 }
 
 void Console::Render() {
@@ -80,7 +107,7 @@ void Console::Render() {
         }
     }
 
-    // Input Box for Commands
+// Input Box for Commands
     if (ImGui::InputText("##Input", inputBuffer, IM_ARRAYSIZE(inputBuffer), ImGuiInputTextFlags_EnterReturnsTrue) && inputBuffer[0] != '\0') {
         ExecuteCommand(inputBuffer);
         inputBuffer[0] = '\0';  // Clear buffer after execution

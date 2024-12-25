@@ -11,6 +11,7 @@ int depth = 2;
 
 GLfloat farPlane = 100.0f;
 GLfloat nearPlane = 1.0f;
+GLfloat fov = 45.0f;
 
 // Actual definitions of global variables
 Viewport viewport = {1280, 720, 1920 - 1280, 1080 - 720};
@@ -32,6 +33,7 @@ FreeCamera freeCamera = {0.0f, 1.5f, 5.0f,  // Camera Position
 int currentCameraIndex = 0;
 bool isDragging = false;
 bool freeRoam = false;
+bool showFrustrum[4] = {false, false, false, false};
 
 
 void renderGUI() {
@@ -55,6 +57,8 @@ void RenderMainControls() {
     ImGui::Text("Perspective:");
     ImGui::SliderFloat("Near Plane", &nearPlane, -5.0f, 10.0f);
     ImGui::SliderFloat("Far Plane", &farPlane, 1.0f, 100.0f);
+    ImGui::SliderFloat("FOV", &fov, 10.0f, 120.0f);
+
 
     ImGui::Text("Rotation Speeds:");
     ImGui::SliderFloat("Speed X", &rotation.speedX, -5.0f, 5.0f);
@@ -73,6 +77,10 @@ void RenderMainControls() {
 
     const char* cameraNames[] = {"Default", "Side View", "Top-Down", "Free Roam"};
     ImGui::Combo("Camera", &currentCameraIndex, cameraNames, IM_ARRAYSIZE(cameraNames));
+    ImGui::Checkbox("Show Frustrum Cam Default", &showFrustrum[0]);
+    ImGui::Checkbox("Show Frustrum Cam Side View", &showFrustrum[1]);
+    ImGui::Checkbox("Show Frustrum Cam Top View", &showFrustrum[2]);
+
 
     ImGui::End();
 }
@@ -102,7 +110,7 @@ void updateViewPort(){
     // Set projection matrix for the smaller viewport
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    gluPerspective(45.0, (float)viewportWidth / (float)viewportHeight, nearPlane, farPlane);
+    gluPerspective(fov, (float)viewportWidth / (float)viewportHeight, nearPlane, farPlane);
     glMatrixMode(GL_MODELVIEW);
 
 }
@@ -172,6 +180,18 @@ void display() {
     if (showOriginAxes) {
         drawAxes(1.0f);  // Axis length
     }
+
+    int camIndex = 0;
+    int width = glutGet(GLUT_WINDOW_WIDTH);
+    int height = glutGet(GLUT_WINDOW_HEIGHT);
+
+    for (bool frustrum : showFrustrum) {
+        if(frustrum){
+            cameras[camIndex].drawFrustum(nearPlane, farPlane, fov, (float)width / (float)height);
+        }
+        camIndex++;
+    }
+
     renderGUI();
 
     glutSwapBuffers();
@@ -182,7 +202,7 @@ void reshape(int width, int height) {
     glViewport(0, 0, width, height);
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    gluPerspective(45.0, (float)width / (float)height, 1.0, 10.0);
+    gluPerspective(fov, (float)width / (float)height, 1.0, 10.0);
     glMatrixMode(GL_MODELVIEW);
 
     // Update ImGui display size to match the window

@@ -5,6 +5,7 @@
 
 class Camera {
 public:
+    GLfloat camX, camY, camZ;
     GLfloat distance;
     GLfloat angleX;
     GLfloat angleY;
@@ -20,6 +21,8 @@ public:
     void moveForward(GLfloat speed);
     void moveRight(GLfloat speed);
     void moveUp(GLfloat speed);
+    void drawFrustum(GLfloat nearDist, GLfloat farDist, GLfloat fov, GLfloat aspectRatio);
+    void drawViewDirection();
 };
 
 #endif // CAMERA_H
