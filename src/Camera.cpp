@@ -21,7 +21,16 @@ void Camera::applyView() {
 }
 
 void Camera::setDistance(GLfloat d) {
+    
+    if(d < 1.0f){
+        d = 1.0f;
+    }
+    else if(d > 200.0f){
+
+        d = 200.0f;
+    }
     this->distance = d;
+
 }
 
 GLfloat Camera::getDistance() {

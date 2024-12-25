@@ -227,6 +227,19 @@ void reshape(int width, int height) {
 }
 
 void mouseButton(int button, int state, int x, int y) {
+
+    if (button == 4) {
+        // Scroll Up - Zoom In
+        cameras[currentCameraIndex].setDistance(cameras[currentCameraIndex].getDistance() + 2.0f);
+
+    } else if(button == 3) {
+        // Scroll Down - Zoom Out
+        cameras[currentCameraIndex].setDistance(cameras[currentCameraIndex].getDistance() - 2.0f);
+
+    }
+
+
+
     int invertedY = glutGet(GLUT_WINDOW_HEIGHT) - y;
 
 
@@ -246,6 +259,8 @@ void mouseButton(int button, int state, int x, int y) {
             }
         }
     }
+    glutPostRedisplay();
+
 }
 
 void mouseMotion(int x, int y) {
@@ -360,7 +375,6 @@ int main(int argc, char* argv[]) {
     glutKeyboardFunc(keyboardDown);
     glutKeyboardUpFunc(keyboardUp);
     glutPassiveMotionFunc(mouseMotionRoam);
-
     // Main loop
     glutMainLoop();
 
