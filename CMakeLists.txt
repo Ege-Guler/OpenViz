@@ -15,6 +15,7 @@ set(SOURCES
     src/main.cpp
     src/Sierpinski.cpp
     src/helper.cpp
+    src/Axes.cpp
     lib/imgui/imgui.cpp
     lib/imgui/imgui_demo.cpp
     lib/imgui/imgui_draw.cpp
@@ -28,6 +29,7 @@ set(HEADERS
     src/main.h
     src/Sierpinski.h
     src/helper.h
+    src/Axes.h
     lib/imgui/imgui.h
     lib/imgui/backends/imgui_impl_glut.h
     lib/imgui/backends/imgui_impl_opengl2.h

@@ -297,6 +297,30 @@ lib/imgui/imgui_widgets.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sierpinski3d.dir/build.make CMakeFiles/sierpinski3d.dir/lib/imgui/imgui_widgets.cpp.s
 .PHONY : lib/imgui/imgui_widgets.cpp.s
 
+src/Axes.o: src/Axes.cpp.o
+.PHONY : src/Axes.o
+
+# target to build an object file
+src/Axes.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sierpinski3d.dir/build.make CMakeFiles/sierpinski3d.dir/src/Axes.cpp.o
+.PHONY : src/Axes.cpp.o
+
+src/Axes.i: src/Axes.cpp.i
+.PHONY : src/Axes.i
+
+# target to preprocess a source file
+src/Axes.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sierpinski3d.dir/build.make CMakeFiles/sierpinski3d.dir/src/Axes.cpp.i
+.PHONY : src/Axes.cpp.i
+
+src/Axes.s: src/Axes.cpp.s
+.PHONY : src/Axes.s
+
+# target to generate assembly for a file
+src/Axes.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sierpinski3d.dir/build.make CMakeFiles/sierpinski3d.dir/src/Axes.cpp.s
+.PHONY : src/Axes.cpp.s
+
 src/Sierpinski.o: src/Sierpinski.cpp.o
 .PHONY : src/Sierpinski.o
 
@@ -399,6 +423,9 @@ help:
 	@echo "... lib/imgui/imgui_widgets.o"
 	@echo "... lib/imgui/imgui_widgets.i"
 	@echo "... lib/imgui/imgui_widgets.s"
+	@echo "... src/Axes.o"
+	@echo "... src/Axes.i"
+	@echo "... src/Axes.s"
 	@echo "... src/Sierpinski.o"
 	@echo "... src/Sierpinski.i"
 	@echo "... src/Sierpinski.s"

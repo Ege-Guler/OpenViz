@@ -2,6 +2,13 @@
 #define MAIN_H_
 
 #include <GL/glut.h>
+#include <cmath>
+#include "imgui.h"
+#include "imgui_impl_glut.h"
+#include "imgui_impl_opengl2.h"
+#include <iostream>
+#include "helper.h"
+#include "Axes.h"
 
 GLfloat cameraDistance = 5.0f;
 GLfloat cameraAngleX = 0.0f;
@@ -28,6 +35,16 @@ struct Viewport
     int viewportX;
     int viewportY;
 };
+
+struct Rotation {
+    float angleX = 0.0f;
+    float angleY = 0.0f;
+    float angleZ = 0.0f;
+    float speedX = 0.0f;
+    float speedY = 0.0f;
+    float speedZ = 0.0f;
+} rotation;
+
 
 
 Viewport viewport = {1280, 720, 1920 -1280, 1080 - 720};

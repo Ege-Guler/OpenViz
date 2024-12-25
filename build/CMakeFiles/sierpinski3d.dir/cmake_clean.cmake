@@ -13,6 +13,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/sierpinski3d.dir/lib/imgui/imgui_tables.cpp.o.d"
   "CMakeFiles/sierpinski3d.dir/lib/imgui/imgui_widgets.cpp.o"
   "CMakeFiles/sierpinski3d.dir/lib/imgui/imgui_widgets.cpp.o.d"
+  "CMakeFiles/sierpinski3d.dir/src/Axes.cpp.o"
+  "CMakeFiles/sierpinski3d.dir/src/Axes.cpp.o.d"
   "CMakeFiles/sierpinski3d.dir/src/Sierpinski.cpp.o"
   "CMakeFiles/sierpinski3d.dir/src/Sierpinski.cpp.o.d"
   "CMakeFiles/sierpinski3d.dir/src/helper.cpp.o"

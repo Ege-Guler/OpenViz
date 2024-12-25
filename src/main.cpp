@@ -1,34 +1,47 @@
 #include <GL/glut.h>
 #include "Sierpinski.h"
 #include "main.h"
-#include <cmath>
-#include "imgui.h"
-#include "imgui_impl_glut.h"
-#include "imgui_impl_opengl2.h"
-#include <iostream>
-#include "helper.h"
+
 
 Sierpinski3D sierpinski3D;
 float rotationSpeed = 1.0f;
-float scale = 1.0f;
+int depth = 2;
 
 
 void renderGUI() {
-    // Start ImGui frame
     ImGui_ImplOpenGL2_NewFrame();
     ImGui_ImplGLUT_NewFrame();
     ImGui::NewFrame();
 
-    // GUI window
+    // Rotation Control Panel
     ImGui::Begin("Controls");
-    ImGui::SliderFloat("Rotation Speed", &rotationSpeed, 0.1f, 5.0f);
-    ImGui::SliderFloat("Scale", &scale, 0.5f, 2.0f);
+
+    // Adjust Rotation Speed
+    ImGui::Text("Rotation Speeds:");
+    ImGui::SliderFloat("Speed X", &rotation.speedX, -5.0f, 5.0f);
+    ImGui::SliderFloat("Speed Y", &rotation.speedY, -5.0f, 5.0f);
+    ImGui::SliderFloat("Speed Z", &rotation.speedZ, -5.0f, 5.0f);
+    ImGui::SliderInt("Depth", &depth, 2, 8);
+
+
+    // Reset Button for Angles
+    if (ImGui::Button("Reset Rotation")) {
+        rotation.angleX = rotation.angleY = rotation.angleZ = 0.0f;
+        rotation.speedX = rotation.speedY = rotation.speedZ = 0.0f;
+    }
+
+
+    ImGui::Checkbox("Show Origin Axes", &showOriginAxes);  // Toggle axes
+    ImGui::Checkbox("Show Object Axes", &showObjectAxes);  // Toggle axes
+    
     ImGui::End();
 
-    // Render ImGui
+
     ImGui::Render();
     ImGui_ImplOpenGL2_RenderDrawData(ImGui::GetDrawData());
 }
+
+
 
 void updateViewPort(){
 
@@ -78,9 +91,33 @@ void display() {
               0.0f, 0.0f, 0.0f,  // Look-at point
               0.0f, 1.0f, 0.0f); // Up vector
 
-    // Draw the Sierpinski 3D object
-    sierpinski3D.drawSierpinskiObject(0.0f, 0.0f, -2.0f, 30.0f, 1.5f);
+// Apply object rotations
+    glPushMatrix();  // Save the current transformation state
+    glTranslatef(0.0f, 0.0f, -2.0f);  // Move object into the scene
 
+    // Rotate around different axes
+    rotation.angleX += rotation.speedX;
+    rotation.angleY += rotation.speedY;
+    rotation.angleZ += rotation.speedZ;
+
+    glRotatef(rotation.angleX, 1.0f, 0.0f, 0.0f);  // Rotate around X-axis
+    glRotatef(rotation.angleY, 0.0f, 1.0f, 0.0f);  // Rotate around Y-axis
+    glRotatef(rotation.angleZ, 0.0f, 0.0f, 1.0f);  // Rotate around Z-axis
+
+    // Draw the Sierpinski object
+    sierpinski3D.drawSierpinskiObject(0.0f, 0.0f, 0.0f, 30.0f, 1.0f, depth);
+
+    if (showObjectAxes) {
+       drawAxesAt(0.0f, 0.0f, 0.0f, 1.0f);  // Axes and sphere at object center
+        drawSphere(0.0f, 0.0f, 0.0f, 0.01f, 1.0f, 1.0f, 1.0f);  // Red sphere at origin
+    }
+
+
+    glPopMatrix();  // Restore previous transformation state
+
+    if (showOriginAxes) {
+        drawAxes(1.0f);  // Axis length
+    }
     // Draw ImGui GUI overlay **AFTER** the OpenGL rendering
     renderGUI();
 

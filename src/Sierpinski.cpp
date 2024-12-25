@@ -47,7 +47,7 @@ void Sierpinski3D::draw(float x, float y, float z, float size, int depth) {
     }
 }
 
-void Sierpinski3D::drawSierpinskiObject(float translateX, float translateY, float translateZ, float rotationAngle, float scaleFactor) {
+void Sierpinski3D::drawSierpinskiObject(float translateX, float translateY, float translateZ, float rotationAngle, float scaleFactor, int depth) {
     glPushMatrix(); 
 
     glTranslatef(translateX, translateY, translateZ); 
@@ -56,7 +56,7 @@ void Sierpinski3D::drawSierpinskiObject(float translateX, float translateY, floa
 
     // Draw the Sierpinski tetrahedron
     Sierpinski3D sierpinski;
-    sierpinski.draw(0.0f, 0.0f, 0.0f, 1.0f, 4); 
+    sierpinski.draw(0.0f, 0.0f, 0.0f, 1.0f, depth); 
 
     glPopMatrix(); 
 }

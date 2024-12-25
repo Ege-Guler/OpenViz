@@ -81,12 +81,12 @@ clean: CMakeFiles/sierpinski3d.dir/clean
 CMakeFiles/sierpinski3d.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sierpinski3d.dir/build.make CMakeFiles/sierpinski3d.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sierpinski3d.dir/build.make CMakeFiles/sierpinski3d.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ege/Desktop/gsu2025/graphics/project/Sierpinski3D/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11 "Built target sierpinski3d"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ege/Desktop/gsu2025/graphics/project/Sierpinski3D/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12 "Built target sierpinski3d"
 .PHONY : CMakeFiles/sierpinski3d.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/sierpinski3d.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ege/Desktop/gsu2025/graphics/project/Sierpinski3D/build/CMakeFiles 11
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ege/Desktop/gsu2025/graphics/project/Sierpinski3D/build/CMakeFiles 12
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/sierpinski3d.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ege/Desktop/gsu2025/graphics/project/Sierpinski3D/build/CMakeFiles 0
 .PHONY : CMakeFiles/sierpinski3d.dir/rule

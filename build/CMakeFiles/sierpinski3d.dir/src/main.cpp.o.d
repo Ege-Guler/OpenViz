@@ -166,4 +166,5 @@ CMakeFiles/sierpinski3d.dir/src/main.cpp.o: \
  /usr/include/c++/11/bits/basic_ios.tcc \
  /usr/include/c++/11/bits/ostream.tcc /usr/include/c++/11/istream \
  /usr/include/c++/11/bits/istream.tcc \
- /home/ege/Desktop/gsu2025/graphics/project/Sierpinski3D/src/helper.h
+ /home/ege/Desktop/gsu2025/graphics/project/Sierpinski3D/src/helper.h \
+ /home/ege/Desktop/gsu2025/graphics/project/Sierpinski3D/src/Axes.h
