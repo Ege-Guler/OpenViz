@@ -53,3 +53,32 @@ void drawSphere(float x, float y, float z, float radius, float r, float g, float
     glPopMatrix();  // Restore transformation state
 }
 
+
+#include <GL/glut.h>
+
+// Function to draw a grid floor on the XZ plane
+void drawGrid(float size, int divisions, float y) {
+    glLineWidth(1.0f);  // Line thickness
+    glColor3f(0.5f, 0.5f, 0.5f);  // Light gray color for the grid
+
+    glBegin(GL_LINES);
+
+    // Calculate spacing between lines
+    float step = size / divisions;
+    float halfSize = size / 2.0f;
+
+    // Draw lines parallel to X-axis (grid along Z direction)
+    for (float i = -halfSize; i <= halfSize; i += step) {
+        glVertex3f(-halfSize, y, i);  // Start of line
+        glVertex3f(halfSize, y, i);   // End of line
+    }
+
+    // Draw lines parallel to Z-axis (grid along X direction)
+    for (float i = -halfSize; i <= halfSize; i += step) {
+        glVertex3f(i, y, -halfSize);  // Start of line
+        glVertex3f(i, y, halfSize);   // End of line
+    }
+
+    glEnd();
+}
+

@@ -91,6 +91,8 @@ void display() {
               0.0f, 0.0f, 0.0f,  // Look-at point
               0.0f, 1.0f, 0.0f); // Up vector
 
+    
+    drawGrid(10.0f, 20, -2);
 // Apply object rotations
     glPushMatrix();  // Save the current transformation state
     glTranslatef(0.0f, 0.0f, -2.0f);  // Move object into the scene

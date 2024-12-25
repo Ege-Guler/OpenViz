@@ -3,9 +3,10 @@
 
 void drawAxes(float length);
 void drawAxesAt(float x, float y, float z, float length);
-void drawSphere(float x, float y, float z, float radius, float r, float g, float b);  // Sphere prototype
+void drawSphere(float x, float y, float z, float radius, float r, float g, float b);
+void drawGrid(float size, int divisions, float y);  // Grid prototype
 
-extern bool showOriginAxes;  // Toggle for showing origin axes
-extern bool showObjectAxes;  // Toggle for showing object-local axes
+extern bool showOriginAxes;
+extern bool showObjectAxes;
 
 #endif  // AXES_H_
