@@ -1,0 +1,3 @@
+/home/ege/Desktop/gsu2025/graphics/project/Sierpinski3D/build/CMakeFiles/sierpinski3d.dir
+/home/ege/Desktop/gsu2025/graphics/project/Sierpinski3D/build/CMakeFiles/edit_cache.dir
+/home/ege/Desktop/gsu2025/graphics/project/Sierpinski3D/build/CMakeFiles/rebuild_cache.dir
