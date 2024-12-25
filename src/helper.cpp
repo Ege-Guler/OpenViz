@@ -11,20 +11,20 @@ bool isMouseInViewport(int x, int y) {
 }
 
 
-void updateCamera() {
-    Camera& cam = cameras[currentCameraIndex];
+// void updateCamera() {
+//     Camera& cam = cameras[currentCameraIndex];
 
-    GLfloat radX = cam.angleX * M_PI / 180.0f;
-    GLfloat radY = cam.angleY * M_PI / 180.0f;
+//     GLfloat radX = cam.angleX * M_PI / 180.0f;
+//     GLfloat radY = cam.angleY * M_PI / 180.0f;
 
-    GLfloat camX = cam.distance * cos(radY) * sin(radX);
-    GLfloat camY = cam.distance * sin(radY);
-    GLfloat camZ = cam.distance * cos(radY) * cos(radX);
+//     GLfloat camX = cam.distance * cos(radY) * sin(radX);
+//     GLfloat camY = cam.distance * sin(radY);
+//     GLfloat camZ = cam.distance * cos(radY) * cos(radX);
 
-    gluLookAt(camX, camY, camZ,  // Camera position
-              cam.posX, cam.posY, cam.posZ,  // Look-at point
-              0.0f, 1.0f, 0.0f);  // Up vector
-}
+//     gluLookAt(camX, camY, camZ,  // Camera position
+//               cam.posX, cam.posY, cam.posZ,  // Look-at point
+//               0.0f, 1.0f, 0.0f);  // Up vector
+// }
 
 
 bool keyStates[256];  // Track key states

@@ -321,6 +321,54 @@ src/Axes.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sierpinski3d.dir/build.make CMakeFiles/sierpinski3d.dir/src/Axes.cpp.s
 .PHONY : src/Axes.cpp.s
 
+src/Camera.o: src/Camera.cpp.o
+.PHONY : src/Camera.o
+
+# target to build an object file
+src/Camera.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sierpinski3d.dir/build.make CMakeFiles/sierpinski3d.dir/src/Camera.cpp.o
+.PHONY : src/Camera.cpp.o
+
+src/Camera.i: src/Camera.cpp.i
+.PHONY : src/Camera.i
+
+# target to preprocess a source file
+src/Camera.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sierpinski3d.dir/build.make CMakeFiles/sierpinski3d.dir/src/Camera.cpp.i
+.PHONY : src/Camera.cpp.i
+
+src/Camera.s: src/Camera.cpp.s
+.PHONY : src/Camera.s
+
+# target to generate assembly for a file
+src/Camera.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sierpinski3d.dir/build.make CMakeFiles/sierpinski3d.dir/src/Camera.cpp.s
+.PHONY : src/Camera.cpp.s
+
+src/Console.o: src/Console.cpp.o
+.PHONY : src/Console.o
+
+# target to build an object file
+src/Console.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sierpinski3d.dir/build.make CMakeFiles/sierpinski3d.dir/src/Console.cpp.o
+.PHONY : src/Console.cpp.o
+
+src/Console.i: src/Console.cpp.i
+.PHONY : src/Console.i
+
+# target to preprocess a source file
+src/Console.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sierpinski3d.dir/build.make CMakeFiles/sierpinski3d.dir/src/Console.cpp.i
+.PHONY : src/Console.cpp.i
+
+src/Console.s: src/Console.cpp.s
+.PHONY : src/Console.s
+
+# target to generate assembly for a file
+src/Console.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sierpinski3d.dir/build.make CMakeFiles/sierpinski3d.dir/src/Console.cpp.s
+.PHONY : src/Console.cpp.s
+
 src/Sierpinski.o: src/Sierpinski.cpp.o
 .PHONY : src/Sierpinski.o
 
@@ -426,6 +474,12 @@ help:
 	@echo "... src/Axes.o"
 	@echo "... src/Axes.i"
 	@echo "... src/Axes.s"
+	@echo "... src/Camera.o"
+	@echo "... src/Camera.i"
+	@echo "... src/Camera.s"
+	@echo "... src/Console.o"
+	@echo "... src/Console.i"
+	@echo "... src/Console.s"
 	@echo "... src/Sierpinski.o"
 	@echo "... src/Sierpinski.i"
 	@echo "... src/Sierpinski.s"

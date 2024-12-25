@@ -3,25 +3,30 @@
 #include "main.h"
 
 
+
 Sierpinski3D sierpinski3D;
+Console console;
 float rotationSpeed = 1.0f;
 int depth = 2;
+
+GLfloat farPlane = 100.0f;
+GLfloat nearPlane = 1.0f;
 
 // Actual definitions of global variables
 Viewport viewport = {1280, 720, 1920 - 1280, 1080 - 720};
 Mouse mouse;
 Rotation rotation = {0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f};
 Camera cameras[4] = {
-    {5.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f},
-    {10.0f, 45.0f, 45.0f, 5.0f, 5.0f, 5.0f},
-    {8.0f, 30.0f, -30.0f, -5.0f, 3.0f, 8.0f},
-    {0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f} // free roam
+    Camera(5.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f),
+    Camera(10.0f, 45.0f, 45.0f, 0.0f, 0.0f, 0.0f),
+    Camera(70.0f, 0.0f, 90.0f, 0.0f, 0.0f, 0.0f),
+    Camera(0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f)  // Free roam mode
 };
 
 FreeCamera freeCamera = {0.0f, 1.5f, 5.0f,  // Camera Position
               0.0f, 0.0f, -1.0f, // Camera Direction (looking forward)
               0.0f, 1.0f, 0.0f,  // Up vector
-              0.01f, 0.00001f};       // Movement speed and sensitivity
+              0.1f, 0.00001f};       // Movement speed and sensitivity
 
 
 int currentCameraIndex = 0;
@@ -34,7 +39,22 @@ void renderGUI() {
     ImGui_ImplGLUT_NewFrame();
     ImGui::NewFrame();
 
+    // Render each panel separately
+    RenderMainControls();
+   console.Render();
+
+    // Finish ImGui frame
+    ImGui::Render();
+    ImGui_ImplOpenGL2_RenderDrawData(ImGui::GetDrawData());
+}
+
+
+void RenderMainControls() {
     ImGui::Begin("Controls");
+
+    ImGui::Text("Perspective:");
+    ImGui::SliderFloat("Near Plane", &nearPlane, -5.0f, 10.0f);
+    ImGui::SliderFloat("Far Plane", &farPlane, 1.0f, 100.0f);
 
     ImGui::Text("Rotation Speeds:");
     ImGui::SliderFloat("Speed X", &rotation.speedX, -5.0f, 5.0f);
@@ -51,18 +71,11 @@ void renderGUI() {
     ImGui::Checkbox("Show Object Axes", &showObjectAxes);
     ImGui::Checkbox("Free Roam", &freeRoam);
 
-
-    // Dropdown for camera selection
     const char* cameraNames[] = {"Default", "Side View", "Top-Down", "Free Roam"};
     ImGui::Combo("Camera", &currentCameraIndex, cameraNames, IM_ARRAYSIZE(cameraNames));
 
     ImGui::End();
-
-    ImGui::Render();
-    ImGui_ImplOpenGL2_RenderDrawData(ImGui::GetDrawData());
 }
-
-
 
 
 void updateViewPort(){
@@ -89,19 +102,31 @@ void updateViewPort(){
     // Set projection matrix for the smaller viewport
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    gluPerspective(45.0, (float)viewportWidth / (float)viewportHeight, 1.0, 10.0);
+    gluPerspective(45.0, (float)viewportWidth / (float)viewportHeight, nearPlane, farPlane);
     glMatrixMode(GL_MODELVIEW);
 
 }
-
 void keyboardDown(unsigned char key, int x, int y) {
+    ImGuiIO& io = ImGui::GetIO();
+    
+    // Pass all keys to ImGui when it's capturing input
+    if (io.WantCaptureKeyboard) {
+        io.AddInputCharacter(key);
+        return;
+    }
+
+    // Game controls if ImGui isn't focused
     keyStates[key] = true;
 }
 
 void keyboardUp(unsigned char key, int x, int y) {
+    ImGuiIO& io = ImGui::GetIO();
+    
+    if (io.WantCaptureKeyboard) {
+        return;
+    }
     keyStates[key] = false;
 }
-
 
 
 
@@ -113,7 +138,7 @@ void display() {
     updateViewPort();
 
     if(!freeRoam){
-        updateCamera();
+        cameras[currentCameraIndex].applyView();
     }
     else{
         updateFreeCamera();
@@ -147,7 +172,6 @@ void display() {
     if (showOriginAxes) {
         drawAxes(1.0f);  // Axis length
     }
-    // Draw ImGui GUI overlay **AFTER** the OpenGL rendering
     renderGUI();
 
     glutSwapBuffers();

@@ -9,6 +9,8 @@
 #include <iostream>
 #include "helper.h"
 #include "Axes.h"
+#include "Camera.h"
+#include "Console.h"
 
 
 // Last mouse pos
@@ -34,14 +36,6 @@ struct Rotation {
     float speedY;
     float speedZ;
 };
-struct Camera {
-    GLfloat distance;
-    GLfloat angleX;
-    GLfloat angleY;
-    GLfloat posX;
-    GLfloat posY;
-    GLfloat posZ;
-};
 
 struct FreeCamera {
     GLfloat posX, posY, posZ;     // Position
@@ -62,7 +56,9 @@ extern int currentCameraIndex;  // Selected camera
 extern bool isDragging;
 extern FreeCamera freeCamera;
 extern bool freeRoam;
-
+extern GLfloat farPlane;
+extern GLfloat nearPlane;
+extern Console console;
 
 void renderGUI();
 void display();
@@ -70,6 +66,6 @@ void reshape(int width, int height);
 void updateViewPort();
 void mouseMotion(int x, int y);
 void mouseButton(int button, int state, int x, int y);
-
+void RenderMainControls();
 
 #endif // MAIN_H_

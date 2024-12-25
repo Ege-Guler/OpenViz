@@ -125,10 +125,38 @@ CMakeFiles/sierpinski3d.dir/src/Axes.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sierpinski3d.dir/src/Axes.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ege/Desktop/gsu2025/graphics/project/Sierpinski3D/src/Axes.cpp -o CMakeFiles/sierpinski3d.dir/src/Axes.cpp.s
 
+CMakeFiles/sierpinski3d.dir/src/Camera.cpp.o: CMakeFiles/sierpinski3d.dir/flags.make
+CMakeFiles/sierpinski3d.dir/src/Camera.cpp.o: ../src/Camera.cpp
+CMakeFiles/sierpinski3d.dir/src/Camera.cpp.o: CMakeFiles/sierpinski3d.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ege/Desktop/gsu2025/graphics/project/Sierpinski3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/sierpinski3d.dir/src/Camera.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sierpinski3d.dir/src/Camera.cpp.o -MF CMakeFiles/sierpinski3d.dir/src/Camera.cpp.o.d -o CMakeFiles/sierpinski3d.dir/src/Camera.cpp.o -c /home/ege/Desktop/gsu2025/graphics/project/Sierpinski3D/src/Camera.cpp
+
+CMakeFiles/sierpinski3d.dir/src/Camera.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sierpinski3d.dir/src/Camera.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ege/Desktop/gsu2025/graphics/project/Sierpinski3D/src/Camera.cpp > CMakeFiles/sierpinski3d.dir/src/Camera.cpp.i
+
+CMakeFiles/sierpinski3d.dir/src/Camera.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sierpinski3d.dir/src/Camera.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ege/Desktop/gsu2025/graphics/project/Sierpinski3D/src/Camera.cpp -o CMakeFiles/sierpinski3d.dir/src/Camera.cpp.s
+
+CMakeFiles/sierpinski3d.dir/src/Console.cpp.o: CMakeFiles/sierpinski3d.dir/flags.make
+CMakeFiles/sierpinski3d.dir/src/Console.cpp.o: ../src/Console.cpp
+CMakeFiles/sierpinski3d.dir/src/Console.cpp.o: CMakeFiles/sierpinski3d.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ege/Desktop/gsu2025/graphics/project/Sierpinski3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/sierpinski3d.dir/src/Console.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sierpinski3d.dir/src/Console.cpp.o -MF CMakeFiles/sierpinski3d.dir/src/Console.cpp.o.d -o CMakeFiles/sierpinski3d.dir/src/Console.cpp.o -c /home/ege/Desktop/gsu2025/graphics/project/Sierpinski3D/src/Console.cpp
+
+CMakeFiles/sierpinski3d.dir/src/Console.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sierpinski3d.dir/src/Console.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ege/Desktop/gsu2025/graphics/project/Sierpinski3D/src/Console.cpp > CMakeFiles/sierpinski3d.dir/src/Console.cpp.i
+
+CMakeFiles/sierpinski3d.dir/src/Console.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sierpinski3d.dir/src/Console.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ege/Desktop/gsu2025/graphics/project/Sierpinski3D/src/Console.cpp -o CMakeFiles/sierpinski3d.dir/src/Console.cpp.s
+
 CMakeFiles/sierpinski3d.dir/lib/imgui/imgui.cpp.o: CMakeFiles/sierpinski3d.dir/flags.make
 CMakeFiles/sierpinski3d.dir/lib/imgui/imgui.cpp.o: ../lib/imgui/imgui.cpp
 CMakeFiles/sierpinski3d.dir/lib/imgui/imgui.cpp.o: CMakeFiles/sierpinski3d.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ege/Desktop/gsu2025/graphics/project/Sierpinski3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/sierpinski3d.dir/lib/imgui/imgui.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ege/Desktop/gsu2025/graphics/project/Sierpinski3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/sierpinski3d.dir/lib/imgui/imgui.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sierpinski3d.dir/lib/imgui/imgui.cpp.o -MF CMakeFiles/sierpinski3d.dir/lib/imgui/imgui.cpp.o.d -o CMakeFiles/sierpinski3d.dir/lib/imgui/imgui.cpp.o -c /home/ege/Desktop/gsu2025/graphics/project/Sierpinski3D/lib/imgui/imgui.cpp
 
 CMakeFiles/sierpinski3d.dir/lib/imgui/imgui.cpp.i: cmake_force
@@ -142,7 +170,7 @@ CMakeFiles/sierpinski3d.dir/lib/imgui/imgui.cpp.s: cmake_force
 CMakeFiles/sierpinski3d.dir/lib/imgui/imgui_demo.cpp.o: CMakeFiles/sierpinski3d.dir/flags.make
 CMakeFiles/sierpinski3d.dir/lib/imgui/imgui_demo.cpp.o: ../lib/imgui/imgui_demo.cpp
 CMakeFiles/sierpinski3d.dir/lib/imgui/imgui_demo.cpp.o: CMakeFiles/sierpinski3d.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ege/Desktop/gsu2025/graphics/project/Sierpinski3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/sierpinski3d.dir/lib/imgui/imgui_demo.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ege/Desktop/gsu2025/graphics/project/Sierpinski3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/sierpinski3d.dir/lib/imgui/imgui_demo.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sierpinski3d.dir/lib/imgui/imgui_demo.cpp.o -MF CMakeFiles/sierpinski3d.dir/lib/imgui/imgui_demo.cpp.o.d -o CMakeFiles/sierpinski3d.dir/lib/imgui/imgui_demo.cpp.o -c /home/ege/Desktop/gsu2025/graphics/project/Sierpinski3D/lib/imgui/imgui_demo.cpp
 
 CMakeFiles/sierpinski3d.dir/lib/imgui/imgui_demo.cpp.i: cmake_force
@@ -156,7 +184,7 @@ CMakeFiles/sierpinski3d.dir/lib/imgui/imgui_demo.cpp.s: cmake_force
 CMakeFiles/sierpinski3d.dir/lib/imgui/imgui_draw.cpp.o: CMakeFiles/sierpinski3d.dir/flags.make
 CMakeFiles/sierpinski3d.dir/lib/imgui/imgui_draw.cpp.o: ../lib/imgui/imgui_draw.cpp
 CMakeFiles/sierpinski3d.dir/lib/imgui/imgui_draw.cpp.o: CMakeFiles/sierpinski3d.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ege/Desktop/gsu2025/graphics/project/Sierpinski3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/sierpinski3d.dir/lib/imgui/imgui_draw.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ege/Desktop/gsu2025/graphics/project/Sierpinski3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/sierpinski3d.dir/lib/imgui/imgui_draw.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sierpinski3d.dir/lib/imgui/imgui_draw.cpp.o -MF CMakeFiles/sierpinski3d.dir/lib/imgui/imgui_draw.cpp.o.d -o CMakeFiles/sierpinski3d.dir/lib/imgui/imgui_draw.cpp.o -c /home/ege/Desktop/gsu2025/graphics/project/Sierpinski3D/lib/imgui/imgui_draw.cpp
 
 CMakeFiles/sierpinski3d.dir/lib/imgui/imgui_draw.cpp.i: cmake_force
@@ -170,7 +198,7 @@ CMakeFiles/sierpinski3d.dir/lib/imgui/imgui_draw.cpp.s: cmake_force
 CMakeFiles/sierpinski3d.dir/lib/imgui/imgui_widgets.cpp.o: CMakeFiles/sierpinski3d.dir/flags.make
 CMakeFiles/sierpinski3d.dir/lib/imgui/imgui_widgets.cpp.o: ../lib/imgui/imgui_widgets.cpp
 CMakeFiles/sierpinski3d.dir/lib/imgui/imgui_widgets.cpp.o: CMakeFiles/sierpinski3d.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ege/Desktop/gsu2025/graphics/project/Sierpinski3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/sierpinski3d.dir/lib/imgui/imgui_widgets.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ege/Desktop/gsu2025/graphics/project/Sierpinski3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/sierpinski3d.dir/lib/imgui/imgui_widgets.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sierpinski3d.dir/lib/imgui/imgui_widgets.cpp.o -MF CMakeFiles/sierpinski3d.dir/lib/imgui/imgui_widgets.cpp.o.d -o CMakeFiles/sierpinski3d.dir/lib/imgui/imgui_widgets.cpp.o -c /home/ege/Desktop/gsu2025/graphics/project/Sierpinski3D/lib/imgui/imgui_widgets.cpp
 
 CMakeFiles/sierpinski3d.dir/lib/imgui/imgui_widgets.cpp.i: cmake_force
@@ -184,7 +212,7 @@ CMakeFiles/sierpinski3d.dir/lib/imgui/imgui_widgets.cpp.s: cmake_force
 CMakeFiles/sierpinski3d.dir/lib/imgui/imgui_tables.cpp.o: CMakeFiles/sierpinski3d.dir/flags.make
 CMakeFiles/sierpinski3d.dir/lib/imgui/imgui_tables.cpp.o: ../lib/imgui/imgui_tables.cpp
 CMakeFiles/sierpinski3d.dir/lib/imgui/imgui_tables.cpp.o: CMakeFiles/sierpinski3d.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ege/Desktop/gsu2025/graphics/project/Sierpinski3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/sierpinski3d.dir/lib/imgui/imgui_tables.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ege/Desktop/gsu2025/graphics/project/Sierpinski3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/sierpinski3d.dir/lib/imgui/imgui_tables.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sierpinski3d.dir/lib/imgui/imgui_tables.cpp.o -MF CMakeFiles/sierpinski3d.dir/lib/imgui/imgui_tables.cpp.o.d -o CMakeFiles/sierpinski3d.dir/lib/imgui/imgui_tables.cpp.o -c /home/ege/Desktop/gsu2025/graphics/project/Sierpinski3D/lib/imgui/imgui_tables.cpp
 
 CMakeFiles/sierpinski3d.dir/lib/imgui/imgui_tables.cpp.i: cmake_force
@@ -198,7 +226,7 @@ CMakeFiles/sierpinski3d.dir/lib/imgui/imgui_tables.cpp.s: cmake_force
 CMakeFiles/sierpinski3d.dir/lib/imgui/backends/imgui_impl_glut.cpp.o: CMakeFiles/sierpinski3d.dir/flags.make
 CMakeFiles/sierpinski3d.dir/lib/imgui/backends/imgui_impl_glut.cpp.o: ../lib/imgui/backends/imgui_impl_glut.cpp
 CMakeFiles/sierpinski3d.dir/lib/imgui/backends/imgui_impl_glut.cpp.o: CMakeFiles/sierpinski3d.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ege/Desktop/gsu2025/graphics/project/Sierpinski3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/sierpinski3d.dir/lib/imgui/backends/imgui_impl_glut.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ege/Desktop/gsu2025/graphics/project/Sierpinski3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/sierpinski3d.dir/lib/imgui/backends/imgui_impl_glut.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sierpinski3d.dir/lib/imgui/backends/imgui_impl_glut.cpp.o -MF CMakeFiles/sierpinski3d.dir/lib/imgui/backends/imgui_impl_glut.cpp.o.d -o CMakeFiles/sierpinski3d.dir/lib/imgui/backends/imgui_impl_glut.cpp.o -c /home/ege/Desktop/gsu2025/graphics/project/Sierpinski3D/lib/imgui/backends/imgui_impl_glut.cpp
 
 CMakeFiles/sierpinski3d.dir/lib/imgui/backends/imgui_impl_glut.cpp.i: cmake_force
@@ -212,7 +240,7 @@ CMakeFiles/sierpinski3d.dir/lib/imgui/backends/imgui_impl_glut.cpp.s: cmake_forc
 CMakeFiles/sierpinski3d.dir/lib/imgui/backends/imgui_impl_opengl2.cpp.o: CMakeFiles/sierpinski3d.dir/flags.make
 CMakeFiles/sierpinski3d.dir/lib/imgui/backends/imgui_impl_opengl2.cpp.o: ../lib/imgui/backends/imgui_impl_opengl2.cpp
 CMakeFiles/sierpinski3d.dir/lib/imgui/backends/imgui_impl_opengl2.cpp.o: CMakeFiles/sierpinski3d.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ege/Desktop/gsu2025/graphics/project/Sierpinski3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/sierpinski3d.dir/lib/imgui/backends/imgui_impl_opengl2.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ege/Desktop/gsu2025/graphics/project/Sierpinski3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/sierpinski3d.dir/lib/imgui/backends/imgui_impl_opengl2.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sierpinski3d.dir/lib/imgui/backends/imgui_impl_opengl2.cpp.o -MF CMakeFiles/sierpinski3d.dir/lib/imgui/backends/imgui_impl_opengl2.cpp.o.d -o CMakeFiles/sierpinski3d.dir/lib/imgui/backends/imgui_impl_opengl2.cpp.o -c /home/ege/Desktop/gsu2025/graphics/project/Sierpinski3D/lib/imgui/backends/imgui_impl_opengl2.cpp
 
 CMakeFiles/sierpinski3d.dir/lib/imgui/backends/imgui_impl_opengl2.cpp.i: cmake_force
@@ -229,6 +257,8 @@ sierpinski3d_OBJECTS = \
 "CMakeFiles/sierpinski3d.dir/src/Sierpinski.cpp.o" \
 "CMakeFiles/sierpinski3d.dir/src/helper.cpp.o" \
 "CMakeFiles/sierpinski3d.dir/src/Axes.cpp.o" \
+"CMakeFiles/sierpinski3d.dir/src/Camera.cpp.o" \
+"CMakeFiles/sierpinski3d.dir/src/Console.cpp.o" \
 "CMakeFiles/sierpinski3d.dir/lib/imgui/imgui.cpp.o" \
 "CMakeFiles/sierpinski3d.dir/lib/imgui/imgui_demo.cpp.o" \
 "CMakeFiles/sierpinski3d.dir/lib/imgui/imgui_draw.cpp.o" \
@@ -244,6 +274,8 @@ sierpinski3d: CMakeFiles/sierpinski3d.dir/src/main.cpp.o
 sierpinski3d: CMakeFiles/sierpinski3d.dir/src/Sierpinski.cpp.o
 sierpinski3d: CMakeFiles/sierpinski3d.dir/src/helper.cpp.o
 sierpinski3d: CMakeFiles/sierpinski3d.dir/src/Axes.cpp.o
+sierpinski3d: CMakeFiles/sierpinski3d.dir/src/Camera.cpp.o
+sierpinski3d: CMakeFiles/sierpinski3d.dir/src/Console.cpp.o
 sierpinski3d: CMakeFiles/sierpinski3d.dir/lib/imgui/imgui.cpp.o
 sierpinski3d: CMakeFiles/sierpinski3d.dir/lib/imgui/imgui_demo.cpp.o
 sierpinski3d: CMakeFiles/sierpinski3d.dir/lib/imgui/imgui_draw.cpp.o
@@ -258,7 +290,7 @@ sierpinski3d: /usr/lib/x86_64-linux-gnu/libglut.so
 sierpinski3d: /usr/lib/x86_64-linux-gnu/libXmu.so
 sierpinski3d: /usr/lib/x86_64-linux-gnu/libXi.so
 sierpinski3d: CMakeFiles/sierpinski3d.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ege/Desktop/gsu2025/graphics/project/Sierpinski3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX executable sierpinski3d"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ege/Desktop/gsu2025/graphics/project/Sierpinski3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Linking CXX executable sierpinski3d"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/sierpinski3d.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

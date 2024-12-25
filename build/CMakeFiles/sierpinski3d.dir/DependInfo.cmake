@@ -16,6 +16,8 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/ege/Desktop/gsu2025/graphics/project/Sierpinski3D/lib/imgui/imgui_tables.cpp" "CMakeFiles/sierpinski3d.dir/lib/imgui/imgui_tables.cpp.o" "gcc" "CMakeFiles/sierpinski3d.dir/lib/imgui/imgui_tables.cpp.o.d"
   "/home/ege/Desktop/gsu2025/graphics/project/Sierpinski3D/lib/imgui/imgui_widgets.cpp" "CMakeFiles/sierpinski3d.dir/lib/imgui/imgui_widgets.cpp.o" "gcc" "CMakeFiles/sierpinski3d.dir/lib/imgui/imgui_widgets.cpp.o.d"
   "/home/ege/Desktop/gsu2025/graphics/project/Sierpinski3D/src/Axes.cpp" "CMakeFiles/sierpinski3d.dir/src/Axes.cpp.o" "gcc" "CMakeFiles/sierpinski3d.dir/src/Axes.cpp.o.d"
+  "/home/ege/Desktop/gsu2025/graphics/project/Sierpinski3D/src/Camera.cpp" "CMakeFiles/sierpinski3d.dir/src/Camera.cpp.o" "gcc" "CMakeFiles/sierpinski3d.dir/src/Camera.cpp.o.d"
+  "/home/ege/Desktop/gsu2025/graphics/project/Sierpinski3D/src/Console.cpp" "CMakeFiles/sierpinski3d.dir/src/Console.cpp.o" "gcc" "CMakeFiles/sierpinski3d.dir/src/Console.cpp.o.d"
   "/home/ege/Desktop/gsu2025/graphics/project/Sierpinski3D/src/Sierpinski.cpp" "CMakeFiles/sierpinski3d.dir/src/Sierpinski.cpp.o" "gcc" "CMakeFiles/sierpinski3d.dir/src/Sierpinski.cpp.o.d"
   "/home/ege/Desktop/gsu2025/graphics/project/Sierpinski3D/src/helper.cpp" "CMakeFiles/sierpinski3d.dir/src/helper.cpp.o" "gcc" "CMakeFiles/sierpinski3d.dir/src/helper.cpp.o.d"
   "/home/ege/Desktop/gsu2025/graphics/project/Sierpinski3D/src/main.cpp" "CMakeFiles/sierpinski3d.dir/src/main.cpp.o" "gcc" "CMakeFiles/sierpinski3d.dir/src/main.cpp.o.d"
