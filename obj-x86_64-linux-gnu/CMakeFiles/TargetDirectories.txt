@@ -1,0 +1,3 @@
+/home/ege/Desktop/gsu2025/graphics/project/Sierpinski3D/obj-x86_64-linux-gnu/CMakeFiles/openviz.dir
+/home/ege/Desktop/gsu2025/graphics/project/Sierpinski3D/obj-x86_64-linux-gnu/CMakeFiles/edit_cache.dir
+/home/ege/Desktop/gsu2025/graphics/project/Sierpinski3D/obj-x86_64-linux-gnu/CMakeFiles/rebuild_cache.dir

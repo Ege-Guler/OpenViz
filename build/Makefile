@@ -117,24 +117,24 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named sierpinski3d
+# Target rules for targets named openviz
 
 # Build rule for target.
-sierpinski3d: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 sierpinski3d
-.PHONY : sierpinski3d
+openviz: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 openviz
+.PHONY : openviz
 
 # fast build rule for target.
-sierpinski3d/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sierpinski3d.dir/build.make CMakeFiles/sierpinski3d.dir/build
-.PHONY : sierpinski3d/fast
+openviz/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/openviz.dir/build.make CMakeFiles/openviz.dir/build
+.PHONY : openviz/fast
 
 lib/imgui/backends/imgui_impl_glut.o: lib/imgui/backends/imgui_impl_glut.cpp.o
 .PHONY : lib/imgui/backends/imgui_impl_glut.o
 
 # target to build an object file
 lib/imgui/backends/imgui_impl_glut.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sierpinski3d.dir/build.make CMakeFiles/sierpinski3d.dir/lib/imgui/backends/imgui_impl_glut.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/openviz.dir/build.make CMakeFiles/openviz.dir/lib/imgui/backends/imgui_impl_glut.cpp.o
 .PHONY : lib/imgui/backends/imgui_impl_glut.cpp.o
 
 lib/imgui/backends/imgui_impl_glut.i: lib/imgui/backends/imgui_impl_glut.cpp.i
@@ -142,7 +142,7 @@ lib/imgui/backends/imgui_impl_glut.i: lib/imgui/backends/imgui_impl_glut.cpp.i
 
 # target to preprocess a source file
 lib/imgui/backends/imgui_impl_glut.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sierpinski3d.dir/build.make CMakeFiles/sierpinski3d.dir/lib/imgui/backends/imgui_impl_glut.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/openviz.dir/build.make CMakeFiles/openviz.dir/lib/imgui/backends/imgui_impl_glut.cpp.i
 .PHONY : lib/imgui/backends/imgui_impl_glut.cpp.i
 
 lib/imgui/backends/imgui_impl_glut.s: lib/imgui/backends/imgui_impl_glut.cpp.s
@@ -150,7 +150,7 @@ lib/imgui/backends/imgui_impl_glut.s: lib/imgui/backends/imgui_impl_glut.cpp.s
 
 # target to generate assembly for a file
 lib/imgui/backends/imgui_impl_glut.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sierpinski3d.dir/build.make CMakeFiles/sierpinski3d.dir/lib/imgui/backends/imgui_impl_glut.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/openviz.dir/build.make CMakeFiles/openviz.dir/lib/imgui/backends/imgui_impl_glut.cpp.s
 .PHONY : lib/imgui/backends/imgui_impl_glut.cpp.s
 
 lib/imgui/backends/imgui_impl_opengl2.o: lib/imgui/backends/imgui_impl_opengl2.cpp.o
@@ -158,7 +158,7 @@ lib/imgui/backends/imgui_impl_opengl2.o: lib/imgui/backends/imgui_impl_opengl2.c
 
 # target to build an object file
 lib/imgui/backends/imgui_impl_opengl2.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sierpinski3d.dir/build.make CMakeFiles/sierpinski3d.dir/lib/imgui/backends/imgui_impl_opengl2.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/openviz.dir/build.make CMakeFiles/openviz.dir/lib/imgui/backends/imgui_impl_opengl2.cpp.o
 .PHONY : lib/imgui/backends/imgui_impl_opengl2.cpp.o
 
 lib/imgui/backends/imgui_impl_opengl2.i: lib/imgui/backends/imgui_impl_opengl2.cpp.i
@@ -166,7 +166,7 @@ lib/imgui/backends/imgui_impl_opengl2.i: lib/imgui/backends/imgui_impl_opengl2.c
 
 # target to preprocess a source file
 lib/imgui/backends/imgui_impl_opengl2.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sierpinski3d.dir/build.make CMakeFiles/sierpinski3d.dir/lib/imgui/backends/imgui_impl_opengl2.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/openviz.dir/build.make CMakeFiles/openviz.dir/lib/imgui/backends/imgui_impl_opengl2.cpp.i
 .PHONY : lib/imgui/backends/imgui_impl_opengl2.cpp.i
 
 lib/imgui/backends/imgui_impl_opengl2.s: lib/imgui/backends/imgui_impl_opengl2.cpp.s
@@ -174,7 +174,7 @@ lib/imgui/backends/imgui_impl_opengl2.s: lib/imgui/backends/imgui_impl_opengl2.c
 
 # target to generate assembly for a file
 lib/imgui/backends/imgui_impl_opengl2.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sierpinski3d.dir/build.make CMakeFiles/sierpinski3d.dir/lib/imgui/backends/imgui_impl_opengl2.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/openviz.dir/build.make CMakeFiles/openviz.dir/lib/imgui/backends/imgui_impl_opengl2.cpp.s
 .PHONY : lib/imgui/backends/imgui_impl_opengl2.cpp.s
 
 lib/imgui/imgui.o: lib/imgui/imgui.cpp.o
@@ -182,7 +182,7 @@ lib/imgui/imgui.o: lib/imgui/imgui.cpp.o
 
 # target to build an object file
 lib/imgui/imgui.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sierpinski3d.dir/build.make CMakeFiles/sierpinski3d.dir/lib/imgui/imgui.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/openviz.dir/build.make CMakeFiles/openviz.dir/lib/imgui/imgui.cpp.o
 .PHONY : lib/imgui/imgui.cpp.o
 
 lib/imgui/imgui.i: lib/imgui/imgui.cpp.i
@@ -190,7 +190,7 @@ lib/imgui/imgui.i: lib/imgui/imgui.cpp.i
 
 # target to preprocess a source file
 lib/imgui/imgui.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sierpinski3d.dir/build.make CMakeFiles/sierpinski3d.dir/lib/imgui/imgui.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/openviz.dir/build.make CMakeFiles/openviz.dir/lib/imgui/imgui.cpp.i
 .PHONY : lib/imgui/imgui.cpp.i
 
 lib/imgui/imgui.s: lib/imgui/imgui.cpp.s
@@ -198,7 +198,7 @@ lib/imgui/imgui.s: lib/imgui/imgui.cpp.s
 
 # target to generate assembly for a file
 lib/imgui/imgui.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sierpinski3d.dir/build.make CMakeFiles/sierpinski3d.dir/lib/imgui/imgui.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/openviz.dir/build.make CMakeFiles/openviz.dir/lib/imgui/imgui.cpp.s
 .PHONY : lib/imgui/imgui.cpp.s
 
 lib/imgui/imgui_demo.o: lib/imgui/imgui_demo.cpp.o
@@ -206,7 +206,7 @@ lib/imgui/imgui_demo.o: lib/imgui/imgui_demo.cpp.o
 
 # target to build an object file
 lib/imgui/imgui_demo.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sierpinski3d.dir/build.make CMakeFiles/sierpinski3d.dir/lib/imgui/imgui_demo.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/openviz.dir/build.make CMakeFiles/openviz.dir/lib/imgui/imgui_demo.cpp.o
 .PHONY : lib/imgui/imgui_demo.cpp.o
 
 lib/imgui/imgui_demo.i: lib/imgui/imgui_demo.cpp.i
@@ -214,7 +214,7 @@ lib/imgui/imgui_demo.i: lib/imgui/imgui_demo.cpp.i
 
 # target to preprocess a source file
 lib/imgui/imgui_demo.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sierpinski3d.dir/build.make CMakeFiles/sierpinski3d.dir/lib/imgui/imgui_demo.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/openviz.dir/build.make CMakeFiles/openviz.dir/lib/imgui/imgui_demo.cpp.i
 .PHONY : lib/imgui/imgui_demo.cpp.i
 
 lib/imgui/imgui_demo.s: lib/imgui/imgui_demo.cpp.s
@@ -222,7 +222,7 @@ lib/imgui/imgui_demo.s: lib/imgui/imgui_demo.cpp.s
 
 # target to generate assembly for a file
 lib/imgui/imgui_demo.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sierpinski3d.dir/build.make CMakeFiles/sierpinski3d.dir/lib/imgui/imgui_demo.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/openviz.dir/build.make CMakeFiles/openviz.dir/lib/imgui/imgui_demo.cpp.s
 .PHONY : lib/imgui/imgui_demo.cpp.s
 
 lib/imgui/imgui_draw.o: lib/imgui/imgui_draw.cpp.o
@@ -230,7 +230,7 @@ lib/imgui/imgui_draw.o: lib/imgui/imgui_draw.cpp.o
 
 # target to build an object file
 lib/imgui/imgui_draw.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sierpinski3d.dir/build.make CMakeFiles/sierpinski3d.dir/lib/imgui/imgui_draw.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/openviz.dir/build.make CMakeFiles/openviz.dir/lib/imgui/imgui_draw.cpp.o
 .PHONY : lib/imgui/imgui_draw.cpp.o
 
 lib/imgui/imgui_draw.i: lib/imgui/imgui_draw.cpp.i
@@ -238,7 +238,7 @@ lib/imgui/imgui_draw.i: lib/imgui/imgui_draw.cpp.i
 
 # target to preprocess a source file
 lib/imgui/imgui_draw.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sierpinski3d.dir/build.make CMakeFiles/sierpinski3d.dir/lib/imgui/imgui_draw.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/openviz.dir/build.make CMakeFiles/openviz.dir/lib/imgui/imgui_draw.cpp.i
 .PHONY : lib/imgui/imgui_draw.cpp.i
 
 lib/imgui/imgui_draw.s: lib/imgui/imgui_draw.cpp.s
@@ -246,7 +246,7 @@ lib/imgui/imgui_draw.s: lib/imgui/imgui_draw.cpp.s
 
 # target to generate assembly for a file
 lib/imgui/imgui_draw.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sierpinski3d.dir/build.make CMakeFiles/sierpinski3d.dir/lib/imgui/imgui_draw.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/openviz.dir/build.make CMakeFiles/openviz.dir/lib/imgui/imgui_draw.cpp.s
 .PHONY : lib/imgui/imgui_draw.cpp.s
 
 lib/imgui/imgui_tables.o: lib/imgui/imgui_tables.cpp.o
@@ -254,7 +254,7 @@ lib/imgui/imgui_tables.o: lib/imgui/imgui_tables.cpp.o
 
 # target to build an object file
 lib/imgui/imgui_tables.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sierpinski3d.dir/build.make CMakeFiles/sierpinski3d.dir/lib/imgui/imgui_tables.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/openviz.dir/build.make CMakeFiles/openviz.dir/lib/imgui/imgui_tables.cpp.o
 .PHONY : lib/imgui/imgui_tables.cpp.o
 
 lib/imgui/imgui_tables.i: lib/imgui/imgui_tables.cpp.i
@@ -262,7 +262,7 @@ lib/imgui/imgui_tables.i: lib/imgui/imgui_tables.cpp.i
 
 # target to preprocess a source file
 lib/imgui/imgui_tables.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sierpinski3d.dir/build.make CMakeFiles/sierpinski3d.dir/lib/imgui/imgui_tables.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/openviz.dir/build.make CMakeFiles/openviz.dir/lib/imgui/imgui_tables.cpp.i
 .PHONY : lib/imgui/imgui_tables.cpp.i
 
 lib/imgui/imgui_tables.s: lib/imgui/imgui_tables.cpp.s
@@ -270,7 +270,7 @@ lib/imgui/imgui_tables.s: lib/imgui/imgui_tables.cpp.s
 
 # target to generate assembly for a file
 lib/imgui/imgui_tables.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sierpinski3d.dir/build.make CMakeFiles/sierpinski3d.dir/lib/imgui/imgui_tables.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/openviz.dir/build.make CMakeFiles/openviz.dir/lib/imgui/imgui_tables.cpp.s
 .PHONY : lib/imgui/imgui_tables.cpp.s
 
 lib/imgui/imgui_widgets.o: lib/imgui/imgui_widgets.cpp.o
@@ -278,7 +278,7 @@ lib/imgui/imgui_widgets.o: lib/imgui/imgui_widgets.cpp.o
 
 # target to build an object file
 lib/imgui/imgui_widgets.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sierpinski3d.dir/build.make CMakeFiles/sierpinski3d.dir/lib/imgui/imgui_widgets.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/openviz.dir/build.make CMakeFiles/openviz.dir/lib/imgui/imgui_widgets.cpp.o
 .PHONY : lib/imgui/imgui_widgets.cpp.o
 
 lib/imgui/imgui_widgets.i: lib/imgui/imgui_widgets.cpp.i
@@ -286,7 +286,7 @@ lib/imgui/imgui_widgets.i: lib/imgui/imgui_widgets.cpp.i
 
 # target to preprocess a source file
 lib/imgui/imgui_widgets.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sierpinski3d.dir/build.make CMakeFiles/sierpinski3d.dir/lib/imgui/imgui_widgets.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/openviz.dir/build.make CMakeFiles/openviz.dir/lib/imgui/imgui_widgets.cpp.i
 .PHONY : lib/imgui/imgui_widgets.cpp.i
 
 lib/imgui/imgui_widgets.s: lib/imgui/imgui_widgets.cpp.s
@@ -294,7 +294,7 @@ lib/imgui/imgui_widgets.s: lib/imgui/imgui_widgets.cpp.s
 
 # target to generate assembly for a file
 lib/imgui/imgui_widgets.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sierpinski3d.dir/build.make CMakeFiles/sierpinski3d.dir/lib/imgui/imgui_widgets.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/openviz.dir/build.make CMakeFiles/openviz.dir/lib/imgui/imgui_widgets.cpp.s
 .PHONY : lib/imgui/imgui_widgets.cpp.s
 
 src/Axes.o: src/Axes.cpp.o
@@ -302,7 +302,7 @@ src/Axes.o: src/Axes.cpp.o
 
 # target to build an object file
 src/Axes.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sierpinski3d.dir/build.make CMakeFiles/sierpinski3d.dir/src/Axes.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/openviz.dir/build.make CMakeFiles/openviz.dir/src/Axes.cpp.o
 .PHONY : src/Axes.cpp.o
 
 src/Axes.i: src/Axes.cpp.i
@@ -310,7 +310,7 @@ src/Axes.i: src/Axes.cpp.i
 
 # target to preprocess a source file
 src/Axes.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sierpinski3d.dir/build.make CMakeFiles/sierpinski3d.dir/src/Axes.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/openviz.dir/build.make CMakeFiles/openviz.dir/src/Axes.cpp.i
 .PHONY : src/Axes.cpp.i
 
 src/Axes.s: src/Axes.cpp.s
@@ -318,7 +318,7 @@ src/Axes.s: src/Axes.cpp.s
 
 # target to generate assembly for a file
 src/Axes.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sierpinski3d.dir/build.make CMakeFiles/sierpinski3d.dir/src/Axes.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/openviz.dir/build.make CMakeFiles/openviz.dir/src/Axes.cpp.s
 .PHONY : src/Axes.cpp.s
 
 src/Camera.o: src/Camera.cpp.o
@@ -326,7 +326,7 @@ src/Camera.o: src/Camera.cpp.o
 
 # target to build an object file
 src/Camera.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sierpinski3d.dir/build.make CMakeFiles/sierpinski3d.dir/src/Camera.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/openviz.dir/build.make CMakeFiles/openviz.dir/src/Camera.cpp.o
 .PHONY : src/Camera.cpp.o
 
 src/Camera.i: src/Camera.cpp.i
@@ -334,7 +334,7 @@ src/Camera.i: src/Camera.cpp.i
 
 # target to preprocess a source file
 src/Camera.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sierpinski3d.dir/build.make CMakeFiles/sierpinski3d.dir/src/Camera.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/openviz.dir/build.make CMakeFiles/openviz.dir/src/Camera.cpp.i
 .PHONY : src/Camera.cpp.i
 
 src/Camera.s: src/Camera.cpp.s
@@ -342,7 +342,7 @@ src/Camera.s: src/Camera.cpp.s
 
 # target to generate assembly for a file
 src/Camera.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sierpinski3d.dir/build.make CMakeFiles/sierpinski3d.dir/src/Camera.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/openviz.dir/build.make CMakeFiles/openviz.dir/src/Camera.cpp.s
 .PHONY : src/Camera.cpp.s
 
 src/Console.o: src/Console.cpp.o
@@ -350,7 +350,7 @@ src/Console.o: src/Console.cpp.o
 
 # target to build an object file
 src/Console.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sierpinski3d.dir/build.make CMakeFiles/sierpinski3d.dir/src/Console.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/openviz.dir/build.make CMakeFiles/openviz.dir/src/Console.cpp.o
 .PHONY : src/Console.cpp.o
 
 src/Console.i: src/Console.cpp.i
@@ -358,7 +358,7 @@ src/Console.i: src/Console.cpp.i
 
 # target to preprocess a source file
 src/Console.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sierpinski3d.dir/build.make CMakeFiles/sierpinski3d.dir/src/Console.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/openviz.dir/build.make CMakeFiles/openviz.dir/src/Console.cpp.i
 .PHONY : src/Console.cpp.i
 
 src/Console.s: src/Console.cpp.s
@@ -366,7 +366,7 @@ src/Console.s: src/Console.cpp.s
 
 # target to generate assembly for a file
 src/Console.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sierpinski3d.dir/build.make CMakeFiles/sierpinski3d.dir/src/Console.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/openviz.dir/build.make CMakeFiles/openviz.dir/src/Console.cpp.s
 .PHONY : src/Console.cpp.s
 
 src/Sierpinski.o: src/Sierpinski.cpp.o
@@ -374,7 +374,7 @@ src/Sierpinski.o: src/Sierpinski.cpp.o
 
 # target to build an object file
 src/Sierpinski.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sierpinski3d.dir/build.make CMakeFiles/sierpinski3d.dir/src/Sierpinski.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/openviz.dir/build.make CMakeFiles/openviz.dir/src/Sierpinski.cpp.o
 .PHONY : src/Sierpinski.cpp.o
 
 src/Sierpinski.i: src/Sierpinski.cpp.i
@@ -382,7 +382,7 @@ src/Sierpinski.i: src/Sierpinski.cpp.i
 
 # target to preprocess a source file
 src/Sierpinski.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sierpinski3d.dir/build.make CMakeFiles/sierpinski3d.dir/src/Sierpinski.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/openviz.dir/build.make CMakeFiles/openviz.dir/src/Sierpinski.cpp.i
 .PHONY : src/Sierpinski.cpp.i
 
 src/Sierpinski.s: src/Sierpinski.cpp.s
@@ -390,7 +390,7 @@ src/Sierpinski.s: src/Sierpinski.cpp.s
 
 # target to generate assembly for a file
 src/Sierpinski.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sierpinski3d.dir/build.make CMakeFiles/sierpinski3d.dir/src/Sierpinski.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/openviz.dir/build.make CMakeFiles/openviz.dir/src/Sierpinski.cpp.s
 .PHONY : src/Sierpinski.cpp.s
 
 src/helper.o: src/helper.cpp.o
@@ -398,7 +398,7 @@ src/helper.o: src/helper.cpp.o
 
 # target to build an object file
 src/helper.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sierpinski3d.dir/build.make CMakeFiles/sierpinski3d.dir/src/helper.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/openviz.dir/build.make CMakeFiles/openviz.dir/src/helper.cpp.o
 .PHONY : src/helper.cpp.o
 
 src/helper.i: src/helper.cpp.i
@@ -406,7 +406,7 @@ src/helper.i: src/helper.cpp.i
 
 # target to preprocess a source file
 src/helper.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sierpinski3d.dir/build.make CMakeFiles/sierpinski3d.dir/src/helper.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/openviz.dir/build.make CMakeFiles/openviz.dir/src/helper.cpp.i
 .PHONY : src/helper.cpp.i
 
 src/helper.s: src/helper.cpp.s
@@ -414,7 +414,7 @@ src/helper.s: src/helper.cpp.s
 
 # target to generate assembly for a file
 src/helper.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sierpinski3d.dir/build.make CMakeFiles/sierpinski3d.dir/src/helper.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/openviz.dir/build.make CMakeFiles/openviz.dir/src/helper.cpp.s
 .PHONY : src/helper.cpp.s
 
 src/main.o: src/main.cpp.o
@@ -422,7 +422,7 @@ src/main.o: src/main.cpp.o
 
 # target to build an object file
 src/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sierpinski3d.dir/build.make CMakeFiles/sierpinski3d.dir/src/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/openviz.dir/build.make CMakeFiles/openviz.dir/src/main.cpp.o
 .PHONY : src/main.cpp.o
 
 src/main.i: src/main.cpp.i
@@ -430,7 +430,7 @@ src/main.i: src/main.cpp.i
 
 # target to preprocess a source file
 src/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sierpinski3d.dir/build.make CMakeFiles/sierpinski3d.dir/src/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/openviz.dir/build.make CMakeFiles/openviz.dir/src/main.cpp.i
 .PHONY : src/main.cpp.i
 
 src/main.s: src/main.cpp.s
@@ -438,7 +438,7 @@ src/main.s: src/main.cpp.s
 
 # target to generate assembly for a file
 src/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sierpinski3d.dir/build.make CMakeFiles/sierpinski3d.dir/src/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/openviz.dir/build.make CMakeFiles/openviz.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
 # Help Target
@@ -449,7 +449,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... sierpinski3d"
+	@echo "... openviz"
 	@echo "... lib/imgui/backends/imgui_impl_glut.o"
 	@echo "... lib/imgui/backends/imgui_impl_glut.i"
 	@echo "... lib/imgui/backends/imgui_impl_glut.s"

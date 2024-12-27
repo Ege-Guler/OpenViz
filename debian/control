@@ -1,0 +1,12 @@
+Source: openviz
+Section: graphics
+Priority: optional
+Maintainer: Ege GULER <egeguler2003@gmail.com>
+Build-Depends: debhelper (>= 12), cmake, g++, libglu1-mesa-dev, freeglut3-dev, libxmu-dev, libxi-dev
+Standards-Version: 4.5.0
+
+Package: openviz
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: 3D Sierpinski Gasket Visualizer
+ A 3D visualization tool that renders a Sierpinski Gasket using OpenGL and ImGui.

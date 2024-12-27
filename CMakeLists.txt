@@ -53,7 +53,7 @@ include_directories(${OPENGL_INCLUDE_DIRS} ${GLUT_INCLUDE_DIRS} lib/imgui lib/im
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 # Create executable
-add_executable(sierpinski3d ${SOURCES} ${HEADERS})
+add_executable(openviz ${SOURCES} ${HEADERS})
 
 # Link OpenGL and GLUT
-target_link_libraries(sierpinski3d ${OPENGL_LIBRARIES} ${GLUT_LIBRARIES})
+target_link_libraries(openviz ${OPENGL_LIBRARIES} ${GLUT_LIBRARIES})

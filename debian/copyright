@@ -1,0 +1,5 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: openviz
+Source: none
+Copyright: 2024 Ege GULER Yusuf Mert AYGUN
+License: MIT
