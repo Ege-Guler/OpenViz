@@ -25,8 +25,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/sierpinski3d.dir/src/helper.cpp.o.d"
   "CMakeFiles/sierpinski3d.dir/src/main.cpp.o"
   "CMakeFiles/sierpinski3d.dir/src/main.cpp.o.d"
-  "sierpinski3d"
-  "sierpinski3d.pdb"
+  "bin/sierpinski3d"
+  "bin/sierpinski3d.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

@@ -6,5 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = -I/home/ege/Desktop/gsu2025/graphics/project/Sierpinski3D/lib/imgui -I/home/ege/Desktop/gsu2025/graphics/project/Sierpinski3D/lib/imgui/backends -I/home/ege/Desktop/gsu2025/graphics/project/Sierpinski3D/src
 
-CXX_FLAGS = -Wall -std=gnu++11
+CXX_FLAGS = -O2 -Wall -std=gnu++17
 

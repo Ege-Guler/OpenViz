@@ -1,8 +1,15 @@
 cmake_minimum_required(VERSION 3.10)
 project(Sierpinski3D)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
+
+if(NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE Release)
+endif()
+
+set(CMAKE_CXX_FLAGS_DEBUG "-g")
+set(CMAKE_CXX_FLAGS_RELEASE "-O2")
 
 add_compile_options(-Wall)
 
@@ -10,7 +17,7 @@ add_compile_options(-Wall)
 find_package(OpenGL REQUIRED)
 find_package(GLUT REQUIRED)
 
-# Set source files
+# Manually specify source files to exclude unnecessary backends
 set(SOURCES
     src/main.cpp
     src/Sierpinski.cpp
@@ -41,6 +48,9 @@ set(HEADERS
 
 # Include directories
 include_directories(${OPENGL_INCLUDE_DIRS} ${GLUT_INCLUDE_DIRS} lib/imgui lib/imgui/backends src)
+
+# Output directory for binaries
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 # Create executable
 add_executable(sierpinski3d ${SOURCES} ${HEADERS})
