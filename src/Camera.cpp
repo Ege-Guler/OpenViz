@@ -2,11 +2,9 @@
 #include <cmath>
 #include <iostream>
 
-// Constructor
 Camera::Camera(GLfloat d, GLfloat ax, GLfloat ay, GLfloat px, GLfloat py, GLfloat pz)
     :distance(d), angleX(ax), angleY(ay), posX(px), posY(py), posZ(pz) {}
 
-// Apply camera view using gluLookAt
 void Camera::applyView() {
     GLfloat radX = angleX * M_PI / 180.0f;
     GLfloat radY = angleY * M_PI / 180.0f;
@@ -67,13 +65,11 @@ void Camera::moveUp(GLfloat speed) {
     posY += speed;
 }
 
-// Draw Frustum (Field of View Visualization)
 void Camera::drawFrustum(GLfloat nearDist, GLfloat farDist, GLfloat fov, GLfloat aspectRatio) {
-    // GLfloat nearDist = 1.0f;  // Near plane distance
-    // GLfloat farDist = 100.0f; // Far plane distance
-    // GLfloat fov = 45.0f;      // Field of view
-
-    // GLfloat aspectRatio = 16.0f / 9.0f;  // Common aspect ratio
+    // GLfloat nearDist = 1.0f;  
+    // GLfloat farDist = 100.0f; 
+    // GLfloat fov = 45.0f;      
+    // GLfloat aspectRatio = 16.0f / 9.0f;  
 
     GLfloat tanFov = tan(fov * 0.5 * M_PI / 180.0f);
 
@@ -90,7 +86,7 @@ void Camera::drawFrustum(GLfloat nearDist, GLfloat farDist, GLfloat fov, GLfloat
     glRotatef(-angleY, 1, 0, 0);
 
     // Draw frustum edges
-    glColor3f(1.0f, 1.0f, 0.0f);  // Yellow for visibility
+    glColor3f(1.0f, 1.0f, 0.0f); 
     glBegin(GL_LINES);
     // Near plane
     glVertex3f(-nearWidth, -nearHeight, -nearDist);
@@ -138,16 +134,15 @@ void Camera::drawFrustum(GLfloat nearDist, GLfloat farDist, GLfloat fov, GLfloat
 // Draw a line to show view direction
 void Camera::drawViewDirection() {
     glPushMatrix();
-    glTranslatef(posX, posY, posZ);  // Camera position
+    glTranslatef(posX, posY, posZ); 
 
-    // Calculate view direction vector
     GLfloat dx = sin(angleX * M_PI / 180.0f);
     GLfloat dz = cos(angleX * M_PI / 180.0f);
 
-    glColor3f(0.0f, 1.0f, 0.0f);  // Green for direction line
+    glColor3f(0.0f, 1.0f, 0.0f); 
     glBegin(GL_LINES);
-    glVertex3f(0, 0, 0);  // Start from camera position
-    glVertex3f(dx * 10, 0, dz * 10);  // Extend the line forward
+    glVertex3f(0, 0, 0);  
+    glVertex3f(dx * 10, 0, dz * 10);  
     glEnd();
 
     glPopMatrix();

@@ -14,7 +14,6 @@ GLfloat nearPlane = 1.0f;
 GLfloat fov = 45.0f;
 GLfloat tempDistance = cameras[currentCameraIndex].getDistance();
 
-// Actual definitions of global variables
 Viewport viewport = {1280, 720, 1920 - 1280, 1080 - 720};
 Mouse mouse;
 Rotation rotation = {0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f};
@@ -22,13 +21,13 @@ Camera cameras[4] = {
     Camera(5.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f),
     Camera(10.0f, 45.0f, 45.0f, 0.0f, 0.0f, 0.0f),
     Camera(70.0f, 0.0f, 90.0f, 0.0f, 0.0f, 0.0f),
-    Camera(0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f)  // Free roam mode
+    Camera(0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f)  
 };
 
-FreeCamera freeCamera = {0.0f, 1.5f, 5.0f,  // Camera Position
-              0.0f, 0.0f, -1.0f, // Camera Direction (looking forward)
-              0.0f, 1.0f, 0.0f,  // Up vector
-              0.1f, 0.00001f};       // Movement speed and sensitivity
+FreeCamera freeCamera = {0.0f, 1.5f, 5.0f, 
+              0.0f, 0.0f, -1.0f, 
+              0.0f, 1.0f, 0.0f,  
+              0.1f, 0.00001f};     
 
 
 int currentCameraIndex = 0;
@@ -43,11 +42,9 @@ void renderGUI() {
     ImGui_ImplGLUT_NewFrame();
     ImGui::NewFrame();
 
-    // Render each panel separately
     RenderMainControls();
    console.Render();
 
-    // Finish ImGui frame
     ImGui::Render();
     ImGui_ImplOpenGL2_RenderDrawData(ImGui::GetDrawData());
 }
@@ -76,6 +73,9 @@ void RenderMainControls() {
     if (ImGui::Button("Reset Rotation")) {
         rotation.angleX = rotation.angleY = rotation.angleZ = 0.0f;
         rotation.speedX = rotation.speedY = rotation.speedZ = 0.0f;
+        if(console.verboseMode){
+            console.AddLog("Reset Rotation");
+        }
     }
 
     ImGui::Checkbox("Show Origin Axes", &showOriginAxes);
@@ -87,7 +87,6 @@ void RenderMainControls() {
         std::cout << "Preview Distance: " << tempDistance << std::endl;
     }
 
-    // Apply the new distance only after slider release
     if (ImGui::IsItemDeactivatedAfterEdit()) {
         cameras[currentCameraIndex].setDistance(tempDistance);
         tempDistance = cameras[currentCameraIndex].getDistance();
@@ -97,7 +96,9 @@ void RenderMainControls() {
     const char* cameraNames[] = {"Default", "Side View", "Top-Down", "Free Roam"};
    if( ImGui::Combo("Camera", &currentCameraIndex, cameraNames, IM_ARRAYSIZE(cameraNames))){
         tempDistance = cameras[currentCameraIndex].getDistance();
-
+        if(console.verboseMode){
+            console.AddLog("Current Camera Index %d", currentCameraIndex);
+        }
    }
     ImGui::Checkbox("Show Frustrum Cam Default", &showFrustrum[0]);
     ImGui::Checkbox("Show Frustrum Cam Side View", &showFrustrum[1]);
@@ -121,6 +122,10 @@ void updateViewPort(){
     int viewportY = height - viewportHeight;
 
     if(viewportWidth != viewport.viewportWidth || viewportHeight != viewport.viewportHeight || viewportX != viewport.viewportX || viewportY != viewport.viewportY){
+        
+        if(console.verboseMode){
+            console.AddLog("Viewport %dx%d at %d,%d", viewportWidth, viewportHeight, viewportX, viewportY);
+        }
         std::cout << "Viewport: " << viewportWidth << "x" << viewportHeight << " at " << viewportX << ", " << viewportY << std::endl;
 
     }
@@ -129,7 +134,6 @@ void updateViewPort(){
 
     viewport = {viewportWidth, viewportHeight, viewportX, viewportY};
 
-    // Set projection matrix for the smaller viewport
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     gluPerspective(fov, (float)viewportWidth / (float)viewportHeight, nearPlane, farPlane);
@@ -142,6 +146,9 @@ void keyboardDown(unsigned char key, int x, int y) {
     if (io.WantCaptureKeyboard) {
         io.AddInputCharacter(key);
         return;
+    }
+    if(console.verboseMode){
+        console.AddLog("Key pressed %c", key);
     }
 
     keyStates[key] = true;
@@ -263,8 +270,6 @@ void mouseButton(int button, int state, int x, int y) {
 void mouseMotion(int x, int y) {
     int invertedY = glutGet(GLUT_WINDOW_HEIGHT) - y;
 
-
-
     bool isInside = insideViewport(x, invertedY, viewport);
 
     ImGui_ImplGLUT_MotionFunc(x, y);
@@ -281,6 +286,12 @@ void mouseMotion(int x, int y) {
 
         mouse.mouseX = x;
         mouse.mouseY = y;
+        
+        if(console.verboseMode){
+            console.AddLog("Cam Angle %d:%d",
+        cameras[currentCameraIndex].angleX, 
+        cameras[currentCameraIndex].angleY);
+        }
 
         glutPostRedisplay();
     }
@@ -314,22 +325,17 @@ void mouseMotionRoam(int x, int y) {
         std::cout << "Viewport Center: " << centerX << ", " << centerY << std::endl;
         std::cout << "Mouse: " << x << ", " << y << std::endl;
 
-        // Calculate deltas (difference from center)
         int dx = x - centerX;
-        int dy = centerY -y;  // **Fixed Y Inversion**
+        int dy = centerY -y;  
 
-        // Adjust yaw and pitch
         freeCamera.dirX += dx * freeCamera.sensitivity;
         freeCamera.dirY += dy * freeCamera.sensitivity;  // Inverted for natural pitch
 
-        // Clamp pitch to avoid flipping
         if (freeCamera.dirY > 89.9f) freeCamera.dirY = 89.9f;
         if (freeCamera.dirY < -89.9f) freeCamera.dirY = -89.9f;
 
-        // Debug output for direction
         std::cout << "Direction: " << freeCamera.dirX << ", " << freeCamera.dirY << std::endl;
 
-        // Re-center the mouse cursor inside the viewport
         warp = true;
         glutWarpPointer(centerX, centerY);
     }

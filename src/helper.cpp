@@ -30,14 +30,12 @@ bool isMouseInViewport(int x, int y) {
 bool keyStates[256];  // Track key states
 
 void updateFreeCamera() {
-    // Calculate forward and right vectors
     GLfloat forwardX = freeCamera.dirX;
     GLfloat forwardZ = freeCamera.dirZ;
 
-    GLfloat rightX = -forwardZ;  // Perpendicular to forward
+    GLfloat rightX = -forwardZ; 
     GLfloat rightZ = forwardX;
 
-    // Normalize direction vectors
     GLfloat length = sqrt(forwardX * forwardX + forwardZ * forwardZ);
     forwardX /= length;
     forwardZ /= length;

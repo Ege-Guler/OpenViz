@@ -13,7 +13,6 @@
 #include "Console.h"
 
 
-// Last mouse pos
 struct Mouse
 {
     GLuint mouseX;
@@ -44,21 +43,21 @@ struct Translation {
 };
 
 struct FreeCamera {
-    GLfloat posX, posY, posZ;     // Position
-    GLfloat dirX, dirY, dirZ;     // Direction
-    GLfloat upX, upY, upZ;        // Up vector
-    GLfloat speed;                // Movement speed
-    GLfloat sensitivity;          // Mouse sensitivity
+    GLfloat posX, posY, posZ;     
+    GLfloat dirX, dirY, dirZ;     
+    GLfloat upX, upY, upZ;        
+    GLfloat speed;                
+    GLfloat sensitivity;          
 };
 
 
-extern bool keyStates[256];  // Track key states
+extern bool keyStates[256];  
 
 extern Viewport viewport;
 extern Mouse mouse;
 extern Rotation rotation;
 extern Camera cameras[4];
-extern int currentCameraIndex;  // Selected camera
+extern int currentCameraIndex;  
 extern bool isDragging;
 extern FreeCamera freeCamera;
 extern bool freeRoam;
