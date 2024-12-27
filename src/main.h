@@ -37,6 +37,12 @@ struct Rotation {
     float speedZ;
 };
 
+struct Translation {
+    GLfloat x;
+    GLfloat y;
+    GLfloat z;
+};
+
 struct FreeCamera {
     GLfloat posX, posY, posZ;     // Position
     GLfloat dirX, dirY, dirZ;     // Direction
@@ -61,6 +67,7 @@ extern GLfloat nearPlane;
 extern Console console;
 extern GLfloat fov;
 extern bool showFrustrum[4];
+extern Translation translation;
 
 void renderGUI();
 void display();

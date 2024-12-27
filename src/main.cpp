@@ -35,6 +35,7 @@ int currentCameraIndex = 0;
 bool isDragging = false;
 bool freeRoam = false;
 bool showFrustrum[4] = {false, false, false, false};
+Translation translation = {0.0f, 0.0f, 0.0f};
 
 
 void renderGUI() {
@@ -66,6 +67,11 @@ void RenderMainControls() {
     ImGui::SliderFloat("Speed Y", &rotation.speedY, -5.0f, 5.0f);
     ImGui::SliderFloat("Speed Z", &rotation.speedZ, -5.0f, 5.0f);
     ImGui::SliderInt("Depth", &depth, 2, 8);
+
+    ImGui::Text("Translation:");
+    ImGui::SliderFloat("Translation X", &translation.x, -5.0f, 5.0f);
+    ImGui::SliderFloat("Translation Y", &translation.y, -5.0f, 5.0f);
+    ImGui::SliderFloat("Translation Z", &translation.z, -5.0f, 5.0f);
 
     if (ImGui::Button("Reset Rotation")) {
         rotation.angleX = rotation.angleY = rotation.angleZ = 0.0f;
@@ -133,13 +139,11 @@ void updateViewPort(){
 void keyboardDown(unsigned char key, int x, int y) {
     ImGuiIO& io = ImGui::GetIO();
     
-    // Pass all keys to ImGui when it's capturing input
     if (io.WantCaptureKeyboard) {
         io.AddInputCharacter(key);
         return;
     }
 
-    // Game controls if ImGui isn't focused
     keyStates[key] = true;
 }
 
@@ -155,7 +159,6 @@ void keyboardUp(unsigned char key, int x, int y) {
 
 
 void display() {
-    // Clear buffers and reset transformations
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glLoadIdentity();
 
@@ -169,32 +172,31 @@ void display() {
     }
 
     drawGrid(10.0f, 20, -2);
-// Apply object rotations
-    glPushMatrix();  // Save the current transformation state
-    glTranslatef(0.0f, 0.0f, -2.0f);  // Move object into the scene
+    glPushMatrix();  
+    glTranslatef(0.0f, 0.0f, -2.0f);  
 
-    // Rotate around different axes
     rotation.angleX += rotation.speedX;
     rotation.angleY += rotation.speedY;
     rotation.angleZ += rotation.speedZ;
 
-    glRotatef(rotation.angleX, 1.0f, 0.0f, 0.0f);  // Rotate around X-axis
-    glRotatef(rotation.angleY, 0.0f, 1.0f, 0.0f);  // Rotate around Y-axis
-    glRotatef(rotation.angleZ, 0.0f, 0.0f, 1.0f);  // Rotate around Z-axis
+    glRotatef(rotation.angleX, 1.0f, 0.0f, 0.0f);  
+    glRotatef(rotation.angleY, 0.0f, 1.0f, 0.0f);  
+    glRotatef(rotation.angleZ, 0.0f, 0.0f, 1.0f);
 
-    // Draw the Sierpinski object
+    glTranslatef(translation.x, translation.y, translation.z);
+
     sierpinski3D.drawSierpinskiObject(0.0f, 0.0f, 0.0f, 30.0f, 1.0f, depth);
 
     if (showObjectAxes) {
-       drawAxesAt(0.0f, 0.0f, 0.0f, 1.0f);  // Axes and sphere at object center
-        drawSphere(0.0f, 0.0f, 0.0f, 0.01f, 1.0f, 1.0f, 1.0f);  // Red sphere at origin
+       drawAxesAt(0.0f, 0.0f, 0.0f, 1.0f);  
+        drawSphere(0.0f, 0.0f, 0.0f, 0.01f, 1.0f, 1.0f, 1.0f);  
     }
 
 
-    glPopMatrix();  // Restore previous transformation state
+    glPopMatrix();  
 
     if (showOriginAxes) {
-        drawAxes(1.0f);  // Axis length
+        drawAxes(1.0f);
     }
 
     int camIndex = 0;
@@ -211,7 +213,7 @@ void display() {
     renderGUI();
 
     glutSwapBuffers();
-    glutPostRedisplay();  // Trigger continuous rendering (required for ImGui)
+    glutPostRedisplay(); 
 }
 
 void reshape(int width, int height) {
@@ -221,7 +223,6 @@ void reshape(int width, int height) {
     gluPerspective(fov, (float)width / (float)height, 1.0, 10.0);
     glMatrixMode(GL_MODELVIEW);
 
-    // Update ImGui display size to match the window
     ImGuiIO& io = ImGui::GetIO();
     io.DisplaySize = ImVec2((float)width, (float)height);
 }
@@ -229,11 +230,9 @@ void reshape(int width, int height) {
 void mouseButton(int button, int state, int x, int y) {
 
     if (button == 4) {
-        // Scroll Up - Zoom In
         cameras[currentCameraIndex].setDistance(cameras[currentCameraIndex].getDistance() + 2.0f);
 
     } else if(button == 3) {
-        // Scroll Down - Zoom Out
         cameras[currentCameraIndex].setDistance(cameras[currentCameraIndex].getDistance() - 2.0f);
 
     }
@@ -244,10 +243,8 @@ void mouseButton(int button, int state, int x, int y) {
 
 
     bool isInside = insideViewport(x, invertedY, viewport);
-    // Pass all events to ImGui first
     ImGui_ImplGLUT_MouseFunc(button, state, x, y);
 
-    // If inside viewport, allow object control
     if (isInside) {
         if (button == GLUT_LEFT_BUTTON) {
             if (state == GLUT_DOWN) {
@@ -270,10 +267,8 @@ void mouseMotion(int x, int y) {
 
     bool isInside = insideViewport(x, invertedY, viewport);
 
-    // Pass all events to ImGui first
     ImGui_ImplGLUT_MotionFunc(x, y);
 
-    // Object manipulation only if inside the viewport
     if (isInside && isDragging) {
         int dx = x - mouse.mouseX;
         int dy = y - mouse.mouseY;
@@ -293,14 +288,13 @@ void mouseMotion(int x, int y) {
 
 
 void mouseMotionRoam(int x, int y) {
-    if (!freeRoam) return;  // Exit if not in free roam mode
+    if (!freeRoam) return;  
 
     ImGuiIO& io = ImGui::GetIO();
     int invertedY = glutGet(GLUT_WINDOW_HEIGHT) - y;
 
-    // Capture mouse only when inside the viewport
     if (isMouseInViewport(x, invertedY)) {
-        io.WantCaptureMouse = false;  // Enable camera control
+        io.WantCaptureMouse = false; 
     } else {
         io.WantCaptureMouse = true;
     }
@@ -313,17 +307,10 @@ void mouseMotionRoam(int x, int y) {
             return;
         }
 
-        // Calculate viewport center
         int centerX = viewport.viewportX + viewport.viewportWidth / 2;
         int centerY = viewport.viewportHeight / 2;
 
 
-        // Clamp mouse position within viewport bounds
-  
-        // Calculate relative mouse position
-
-
-        // Debugging output
         std::cout << "Viewport Center: " << centerX << ", " << centerY << std::endl;
         std::cout << "Mouse: " << x << ", " << y << std::endl;
 
